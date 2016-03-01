@@ -61,13 +61,13 @@ host_arch_cflags := \
   -DVGA_amd64=1 \
   -DVGP_amd64_linux=1 \
   -DVG_PLATFORM=\"amd64-linux\" \
-  -DVG_LIBDIR=\"$(realpath $(HOST_OUT_SHARED_LIBRARIES))/valgrind\"
+  -DVG_LIBDIR=\"$(abspath $(HOST_OUT_SHARED_LIBRARIES))/valgrind\"
 
 host_2nd_arch_cflags := \
   -DVGA_x86=1 \
   -DVGP_x86_linux=1 \
   -DVG_PLATFORM=\"x86-linux\" \
-  -DVG_LIBDIR=\"$(realpath $(HOST_OUT_SHARED_LIBRARIES))/valgrind\"
+  -DVG_LIBDIR=\"$(abspath $(HOST_OUT_SHARED_LIBRARIES))/valgrind\"
 
 common_includes := \
 	external/valgrind \
