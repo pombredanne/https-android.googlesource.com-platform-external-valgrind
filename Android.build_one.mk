@@ -32,6 +32,8 @@ endif
 
 LOCAL_MODULE := $(vg_local_module)-$(vg_local_arch)-linux
 
+LOCAL_MODULE_TARGET_ARCH := $(vg_local_arch)
+
 LOCAL_SRC_FILES := $(vg_local_src_files)
 
 LOCAL_C_INCLUDES := $(common_includes) $(vg_local_c_includes)
@@ -74,4 +76,3 @@ ifeq ($(vg_local_no_crt),true)
 endif
 
 include $(BUILD_$(vg_local_target))
-
