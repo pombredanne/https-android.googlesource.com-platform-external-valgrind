@@ -613,9 +613,8 @@ endif
 # Copy prebuilt suppressions
 include $(CLEAR_VARS)
 LOCAL_MODULE := default.supp
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_PATH := $(PRODUCT_OUT)$(vg_target_module_path)
-LOCAL_STRIP_MODULE := false
 LOCAL_SRC_FILES := bionic.supp
 
 include $(BUILD_PREBUILT)
@@ -624,9 +623,8 @@ ifeq ($(HOST_OS), linux)
 include $(CLEAR_VARS)
 LOCAL_IS_HOST_MODULE := true
 LOCAL_MODULE := default.supp
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_PATH := $(HOST_OUT_SHARED_LIBRARIES)/valgrind
-LOCAL_STRIP_MODULE := false
 LOCAL_SRC_FILES := bionic.supp
 
 include $(BUILD_PREBUILT)
