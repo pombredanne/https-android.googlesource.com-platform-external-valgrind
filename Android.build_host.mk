@@ -23,8 +23,10 @@ else
   vg_local_arch := amd64
 endif
 
-# Do not call (builtin) memset from VG(memset).
-LOCAL_CLANG_CFLAGS += -fno-builtin-memset
+# TODO: This workaround is to avoid calling memset from VG(memset)
+# wrapper because of invalid clang optimization; This seems to be
+# limited to amd64/x86 codegen(?);
+LOCAL_CLANG := false
 
 LOCAL_MODULE := $(vg_local_module)-$(vg_local_arch)-linux
 
