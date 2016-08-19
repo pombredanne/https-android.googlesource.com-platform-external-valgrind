@@ -23,12 +23,14 @@ LOCAL_MULTILIB := first
 vg_local_arch  := $(vg_arch)
 endif
 
-# TODO: This workaround is to avoid calling memset from VG(memset)
-# wrapper because of invalid clang optimization; This seems to be
-# limited to amd64/x86 codegen(?);
+# For arm and arm64 targets, clang compiled module has other
+# undefined errors, see bug 28454823.
 ifeq ($(filter $TARGET_ARCH,x86 x86_64),)
   LOCAL_CLANG := false
 endif
+
+# Do not call (builtin) memset from VG(memset).
+LOCAL_CLANG_CFLAGS += -fno-builtin-memset
 
 LOCAL_MODULE := $(vg_local_module)-$(vg_local_arch)-linux
 
