@@ -18,9 +18,11 @@ LOCAL_ARM_MODE := arm
 ifeq ($(vg_build_second_arch),true)
 LOCAL_MULTILIB := 32
 vg_local_arch := $(TARGET_2ND_ARCH)
+vg_local_android_arch := $(TARGET_2ND_ARCH)
 else
 LOCAL_MULTILIB := first
 vg_local_arch  := $(vg_arch)
+vg_local_android_arch := $(TARGET_ARCH)
 endif
 
 # TODO: This workaround is to avoid calling memset from VG(memset)
@@ -32,7 +34,7 @@ endif
 
 LOCAL_MODULE := $(vg_local_module)-$(vg_local_arch)-linux
 
-LOCAL_MODULE_TARGET_ARCH := $(vg_local_arch)
+LOCAL_MODULE_TARGET_ARCH := $(vg_local_android_arch)
 
 LOCAL_SRC_FILES := $(vg_local_src_files)
 
