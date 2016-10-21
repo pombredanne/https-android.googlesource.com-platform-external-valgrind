@@ -25,11 +25,6 @@ vg_local_arch  := $(vg_arch)
 vg_local_android_arch := $(TARGET_ARCH)
 endif
 
-# For arm64 target, clang compiled valgrind has setjmp/longjump problems,
-# and gcc compiled valgrind failed many art test too.
-# See bug 28454823 and 29282211.
-LOCAL_CLANG_arm64 := false
-
 # Do not call (builtin) memset from VG(memset).
 LOCAL_CLANG_CFLAGS += -fno-builtin-memset
 
