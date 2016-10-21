@@ -297,6 +297,10 @@ vg_local_src_files := \
 	coregrind/m_gdbserver/valgrind-low-x86.c \
 	coregrind/m_gdbserver/version.c
 
+ifeq (arm64, $(TARGET_ARCH))
+  vg_local_src_files += android/aarch64/setjmp.S
+endif
+
 vg_local_ldflags := $(vex_ldflags)
 vg_local_cflags := $(common_cflags)
 
