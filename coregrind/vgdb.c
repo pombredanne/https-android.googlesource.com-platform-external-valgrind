@@ -381,7 +381,7 @@ int read_buf (int fd, char* buf, const char* desc)
    valgrind process that there is new data.
    Returns True if write is ok, False if there was a problem. */
 static
-Bool write_buf(int fd, char* buf, int size, const char* desc, Bool notify)
+Bool write_buf(int fd, const char* buf, int size, const char* desc, Bool notify)
 {
    int nrwritten;
    int nrw;
@@ -586,10 +586,9 @@ readchar (int fd)
 }
 
 /* Read a packet from fromfd, with error checking,
-   and store it in BUF.  
-   Returns length of packet, or -1 if error or -2 if EOF.
-   Writes ack on ackfd */
-
+   and store it in BUF.
+   If checksum incorrect, writes a - on ackfd.
+   Returns length of packet, or -1 if error or -2 if EOF. */
 static int
 getpkt (char *buf, int fromfd, int ackfd)
 {
@@ -647,11 +646,7 @@ getpkt (char *buf, int fromfd, int ackfd)
         add_written(1);
   }
 
-  DEBUG(2, "getpkt (\"%s\");  [sending ack] \n", buf);
-  if (write (ackfd, "+", 1) != 1)
-     ERROR(0, "error when writing + (ack)\n");
-  else
-     add_written(1);
+  DEBUG(2, "getpkt (\"%s\");  [no ack] \n", buf);
   return bp - buf;
 }
 
@@ -687,7 +682,11 @@ void received_signal (int signum)
       sigpipe++;
    } else if (signum == SIGALRM) {
       sigalrm++;
-#if defined(__ANDROID__)
+#if defined(VGPV_amd64_linux_android) \
+    || defined(VGPV_arm_linux_android) \
+    || defined(VGPV_x86_linux_android) \
+    || defined(VGPV_mips32_linux_android) \
+    || defined(VGPV_arm64_linux_android)
       /* Android has no pthread_cancel. As it also does not have
          an invoker implementation, there is no need for cleanup action.
          So, we just do nothing. */
@@ -977,6 +976,17 @@ void standalone_send_commands(int pid,
    }
    from_pid = open_fifo(to_gdb_from_pid, O_RDONLY, 
                         "read cmd result from pid");
+
+   /* Enable no ack mode. */
+   write_buf(to_pid, "$QStartNoAckMode#b0", 19, "write start no ack mode",
+             /* notify */ True);
+   buflen = getpkt(buf, from_pid, to_pid);
+   if (buflen != 2 || strcmp(buf, "OK") != 0) {
+      if (buflen != 2)
+         ERROR (0, "no ack mode: unexpected buflen %d\n", buflen);
+      else
+         ERROR (0, "no ack mode: unexpected packet %s\n", buf);
+   }
    
    for (nc = 0; nc <= last_command; nc++) {
       fprintf (stderr, "sending command %s to pid %d\n", commands[nc], pid);
