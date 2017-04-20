@@ -91,7 +91,8 @@ __attribute__((noreturn))
 void  VG_MINIMAL_LONGJMP(VG_MINIMAL_JMP_BUF(_env));
 
 
-#elif defined(VGP_amd64_linux) || defined(VGP_amd64_darwin)
+#elif defined(VGP_amd64_linux) || defined(VGP_amd64_darwin) || \
+      defined(VGP_amd64_solaris)
 
 #define VG_MINIMAL_JMP_BUF(_name)        ULong _name [16+1]
 __attribute__((returns_twice))
@@ -100,7 +101,8 @@ __attribute__((noreturn))
 void  VG_MINIMAL_LONGJMP(VG_MINIMAL_JMP_BUF(_env));
 
 
-#elif defined(VGP_x86_linux) || defined(VGP_x86_darwin)
+#elif defined(VGP_x86_linux) || defined(VGP_x86_darwin) || \
+      defined(VGP_x86_solaris)
 
 #define VG_MINIMAL_JMP_BUF(_name)        UInt _name [8+1]
 __attribute__((returns_twice))
@@ -118,7 +120,7 @@ UWord VG_MINIMAL_SETJMP(VG_MINIMAL_JMP_BUF(_env));
 __attribute__((noreturn))
 void  VG_MINIMAL_LONGJMP(VG_MINIMAL_JMP_BUF(_env));
 
-#elif defined(ANDROID) && defined(__aarch64__)
+#elif defined(VGPV_arm64_linux_android)
 
 /* Android clang/llvm has no __builtin_{setjmp,longjmp} for aarch64. */
 /* Use the same setjmp/longjmp functions for both gcc and clang.     */
