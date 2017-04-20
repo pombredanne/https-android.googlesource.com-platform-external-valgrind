@@ -2946,6 +2946,16 @@ struct vki_perf_event_attr {
 	};
 };
 
+#define VKI_PERF_EVENT_IOC_ENABLE       _VKI_IO ('$', 0)
+#define VKI_PERF_EVENT_IOC_DISABLE      _VKI_IO ('$', 1)
+#define VKI_PERF_EVENT_IOC_REFRESH      _VKI_IO ('$', 2)
+#define VKI_PERF_EVENT_IOC_RESET        _VKI_IO ('$', 3)
+#define VKI_PERF_EVENT_IOC_PERIOD       _VKI_IOW('$', 4, __vki_u64)
+#define VKI_PERF_EVENT_IOC_SET_OUTPUT   _VKI_IO ('$', 5)
+#define VKI_PERF_EVENT_IOC_SET_FILTER   _VKI_IOW('$', 6, char *)
+#define VKI_PERF_EVENT_IOC_ID           _VKI_IOR('$', 7, __vki_u64 *)
+#define VKI_PERF_EVENT_IOC_SET_BPF      _VKI_IOW('$', 8, __vki_u32)
+
 /*--------------------------------------------------------------------*/
 // From linux-2.6.32.4/include/linux/getcpu.h
 /*--------------------------------------------------------------------*/
@@ -3009,7 +3019,8 @@ struct vki_getcpu_cache {
 //----------------------------------------------------------------------
 
 #if defined(VGPV_arm_linux_android) || defined(VGPV_x86_linux_android) \
-    || defined(VGPV_mips32_linux_android)
+    || defined(VGPV_mips32_linux_android) \
+    || defined(VGPV_arm64_linux_android)
 
 #define VKI_ASHMEM_NAME_LEN 256
 
@@ -4690,6 +4701,32 @@ struct vki_serial_struct {
 	unsigned int	port_high;
 	unsigned long	iomap_base;	/* cookie passed into ioremap */
 };
+
+//----------------------------------------------------------------------
+// From linux-3.19.0/fs/binfmt_elf.c
+//----------------------------------------------------------------------
+
+#if !defined(VKI_INIT_ARCH_ELF_STATE)
+   /* This structure is used to preserve architecture specific data during
+      the loading of an ELF file, throughout the checking of architecture
+      specific ELF headers & through to the point where the ELF load is
+      known to be proceeding. This implementation is a dummy for
+      architectures which require no specific state. */
+   struct vki_arch_elf_state {
+   };
+
+#  define VKI_INIT_ARCH_ELF_STATE { }
+
+#endif
+
+//----------------------------------------------------------------------
+// From linux-4.0/include/uapi/linux/prctl.h
+//----------------------------------------------------------------------
+
+#define VKI_PR_SET_FP_MODE          45
+#define VKI_PR_GET_FP_MODE          46
+# define VKI_PR_FP_MODE_FR          (1 << 0)     /* 64b FP registers  */
+# define VKI_PR_FP_MODE_FRE         (1 << 1)     /* 32b compatibility */
 
 #endif // __VKI_LINUX_H
 

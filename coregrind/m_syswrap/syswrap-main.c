@@ -50,6 +50,7 @@
 #include "pub_core_machine.h"
 #include "pub_core_mallocfree.h"
 #include "pub_core_syswrap.h"
+#include "pub_core_gdbserver.h"     // VG_(gdbserver_report_syscall)
 
 #include "priv_types_n_macros.h"
 #include "priv_syswrap-main.h"
@@ -1656,7 +1657,7 @@ static const SyscallTableEntry* get_syscall_entry ( Int syscallno )
 /* Add and remove signals from mask so that we end up telling the
    kernel the state we actually want rather than what the client
    wants. */
-static void sanitize_client_sigmask(vki_sigset_t *mask)
+void VG_(sanitize_client_sigmask)(vki_sigset_t *mask)
 {
    VG_(sigdelset)(mask, VKI_SIGKILL);
    VG_(sigdelset)(mask, VKI_SIGSTOP);
@@ -1906,6 +1907,9 @@ void VG_(client_syscall) ( ThreadId tid, UInt trc )
                   &layout, 
                   &sci->args, &sci->status, &sci->flags );
    
+   /* If needed, gdbserver will report syscall entry to GDB */
+   VG_(gdbserver_report_syscall)(True, sysno, tid);
+
    /* The pre-handler may have modified:
          sci->args
          sci->status
@@ -1975,7 +1979,7 @@ void VG_(client_syscall) ( ThreadId tid, UInt trc )
          PRINT(" --> [async] ... \n");
 
          mask = tst->sig_mask;
-         sanitize_client_sigmask(&mask);
+         VG_(sanitize_client_sigmask)(&mask);
 
          /* Gack.  More impedance matching.  Copy the possibly
             modified syscall args back into the guest state. */
@@ -2062,6 +2066,9 @@ void VG_(client_syscall) ( ThreadId tid, UInt trc )
       a platform-specific action. */
    if (!(sci->flags & SfNoWriteResult))
       putSyscallStatusIntoGuestState( tid, &sci->status, &tst->arch.vex );
+
+   /* If needed, gdbserver will report syscall return to GDB */
+   VG_(gdbserver_report_syscall)(False, sysno, tid);
 
    /* Situation now:
       - the guest state is now correctly modified following the syscall
