@@ -16,7 +16,7 @@ LOCAL_PATH:= $(call my-dir)
 
 ANDROID_HARDWARE := ANDROID_HARDWARE_generic
 
-ifneq ($(filter arm arm64 x86 x86_64,$(TARGET_ARCH)),)
+ifneq ($(filter arm arm64 x86_64,$(TARGET_ARCH)),)
 
 vg_arch:=$(TARGET_ARCH)
 
