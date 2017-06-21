@@ -112,7 +112,7 @@ host_triplet = @host@
 
 
 # Make sure that all test programs have threaded errno.
-# Disable largefile support as there are test cases explictly enabling it.
+# Disable largefile support as there are test cases explicitly enabling it.
 @VGCONF_OS_IS_SOLARIS_TRUE@am__append_5 = -D_REENTRANT @SOLARIS_UNDEF_LARGESOURCE@
 @COMPILER_IS_CLANG_TRUE@am__append_6 = -Wno-format-extra-args \
 @COMPILER_IS_CLANG_TRUE@	-Wno-literal-range \
@@ -125,21 +125,23 @@ host_triplet = @host@
 # Arch-specific tests.
 @VGCONF_ARCHS_INCLUDE_X86_TRUE@am__append_8 = x86
 @VGCONF_ARCHS_INCLUDE_AMD64_TRUE@am__append_9 = amd64
-@VGCONF_ARCHS_INCLUDE_PPC32_TRUE@am__append_10 = ppc32
-@VGCONF_ARCHS_INCLUDE_PPC64_TRUE@am__append_11 = ppc64
-@VGCONF_ARCHS_INCLUDE_S390X_TRUE@am__append_12 = s390x
+@VGCONF_ARCHS_INCLUDE_MIPS32_TRUE@am__append_10 = mips32
+@VGCONF_ARCHS_INCLUDE_MIPS64_TRUE@am__append_11 = mips64
+@VGCONF_ARCHS_INCLUDE_PPC32_TRUE@am__append_12 = ppc32
+@VGCONF_ARCHS_INCLUDE_PPC64_TRUE@am__append_13 = ppc64
+@VGCONF_ARCHS_INCLUDE_S390X_TRUE@am__append_14 = s390x
 
 # OS-specific tests
-@VGCONF_OS_IS_LINUX_TRUE@am__append_13 = linux
-@VGCONF_OS_IS_DARWIN_TRUE@am__append_14 = darwin
-@VGCONF_OS_IS_SOLARIS_TRUE@am__append_15 = solaris
+@VGCONF_OS_IS_LINUX_TRUE@am__append_15 = linux
+@VGCONF_OS_IS_DARWIN_TRUE@am__append_16 = darwin
+@VGCONF_OS_IS_SOLARIS_TRUE@am__append_17 = solaris
 
 # Platform-specific tests
-@VGCONF_PLATFORMS_INCLUDE_X86_LINUX_TRUE@am__append_16 = x86-linux
-@VGCONF_PLATFORMS_INCLUDE_AMD64_LINUX_TRUE@am__append_17 = amd64-linux
-@VGCONF_PLATFORMS_INCLUDE_ARM64_LINUX_TRUE@am__append_18 = arm64-linux
-@VGCONF_PLATFORMS_INCLUDE_X86_SOLARIS_TRUE@am__append_19 = x86-solaris
-@VGCONF_PLATFORMS_INCLUDE_AMD64_SOLARIS_TRUE@am__append_20 = amd64-solaris
+@VGCONF_PLATFORMS_INCLUDE_X86_LINUX_TRUE@am__append_18 = x86-linux
+@VGCONF_PLATFORMS_INCLUDE_AMD64_LINUX_TRUE@am__append_19 = amd64-linux
+@VGCONF_PLATFORMS_INCLUDE_ARM64_LINUX_TRUE@am__append_20 = arm64-linux
+@VGCONF_PLATFORMS_INCLUDE_X86_SOLARIS_TRUE@am__append_21 = x86-solaris
+@VGCONF_PLATFORMS_INCLUDE_AMD64_SOLARIS_TRUE@am__append_22 = amd64-solaris
 check_PROGRAMS = accounting$(EXEEXT) addressable$(EXEEXT) \
 	atomic_incs$(EXEEXT) badaddrvalue$(EXEEXT) badfree$(EXEEXT) \
 	badjump$(EXEEXT) badjump2$(EXEEXT) badloop$(EXEEXT) \
@@ -199,16 +201,16 @@ check_PROGRAMS = accounting$(EXEEXT) addressable$(EXEEXT) \
 	$(am__EXEEXT_5) $(am__EXEEXT_6) $(am__EXEEXT_7)
 
 # Sun Studio assembler fails on "IDENT too long"
-@SOLARIS_SUN_STUDIO_AS_FALSE@am__append_21 = long_namespace_xml
-@DWARF4_TRUE@am__append_22 = dw4
-@GZ_ZLIB_TRUE@am__append_23 = cdebug_zlib
-@GZ_ZLIB_GNU_TRUE@am__append_24 = cdebug_zlib_gnu
-@HAVE_GNU_STPNCPY_TRUE@am__append_25 = stpncpy
-@HAVE_PTHREAD_SETNAME_NP_TRUE@am__append_26 = threadname 
-@HAVE_PTHREAD_BARRIER_TRUE@am__append_27 = reach_thread_register
-@VGCONF_OS_IS_SOLARIS_TRUE@am__append_28 = -std=c99 -D_XOPEN_SOURCE=600
-@VGCONF_OS_IS_SOLARIS_TRUE@am__append_29 = -std=c99 -D__EXTENSIONS__
+@SOLARIS_SUN_STUDIO_AS_FALSE@am__append_23 = long_namespace_xml
+@DWARF4_TRUE@am__append_24 = dw4
+@GZ_ZLIB_TRUE@am__append_25 = cdebug_zlib
+@GZ_ZLIB_GNU_TRUE@am__append_26 = cdebug_zlib_gnu
+@HAVE_GNU_STPNCPY_TRUE@am__append_27 = stpncpy
+@HAVE_PTHREAD_SETNAME_NP_TRUE@am__append_28 = threadname 
+@HAVE_PTHREAD_BARRIER_TRUE@am__append_29 = reach_thread_register
 @VGCONF_OS_IS_SOLARIS_TRUE@am__append_30 = -std=c99 -D_XOPEN_SOURCE=600
+@VGCONF_OS_IS_SOLARIS_TRUE@am__append_31 = -std=c99 -D__EXTENSIONS__
+@VGCONF_OS_IS_SOLARIS_TRUE@am__append_32 = -std=c99 -D_XOPEN_SOURCE=600
 subdir = memcheck/tests
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -1030,6 +1032,7 @@ FLAG_MLONG_DOUBLE_128 = @FLAG_MLONG_DOUBLE_128@
 FLAG_MMMX = @FLAG_MMMX@
 FLAG_MSSE = @FLAG_MSSE@
 FLAG_NO_BUILD_ID = @FLAG_NO_BUILD_ID@
+FLAG_NO_PIE = @FLAG_NO_PIE@
 FLAG_OCTEON = @FLAG_OCTEON@
 FLAG_OCTEON2 = @FLAG_OCTEON2@
 FLAG_T_TEXT = @FLAG_T_TEXT@
@@ -1200,6 +1203,7 @@ AM_CFLAGS_BASE = -O2 -g -std=gnu99 -Wall -Wmissing-prototypes -Wshadow \
 AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@ = \
 	-I$(top_srcdir) \
 	-I$(top_srcdir)/include \
+	-I$(top_builddir)/include \
 	-I$(top_srcdir)/VEX/pub \
 	-I$(top_builddir)/VEX/pub \
 	-DVGA_@VGCONF_ARCH_PRI@=1 \
@@ -1210,6 +1214,7 @@ AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@ = \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@AM_CPPFLAGS_@VGCONF_PLATFORM_SEC_CAPS@ = \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir) \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir)/include \
+@VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_builddir)/include \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir)/VEX/pub \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_builddir)/VEX/pub \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-DVGA_@VGCONF_ARCH_SEC@=1 \
@@ -1284,8 +1289,6 @@ AM_CFLAGS_PSO_MIPS64_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE) @FLAG_MIPS64@ \
 				$(AM_CFLAGS_PSO_BASE)
 
 AM_CCASFLAGS_MIPS64_LINUX = @FLAG_M64@ -g @FLAG_MIPS64@
-AM_CFLAGS_TILEGX_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE)
-AM_CFLAGS_PSO_TILEGX_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE) $(AM_CFLAGS_PSO_BASE)
 AM_FLAG_M3264_X86_SOLARIS = @FLAG_M32@
 AM_CFLAGS_X86_SOLARIS = @FLAG_M32@ @PREFERRED_STACK_BOUNDARY_2@ \
 				$(AM_CFLAGS_BASE) -fomit-frame-pointer \
@@ -1330,7 +1333,6 @@ PRELOAD_LDFLAGS_AMD64_DARWIN = $(PRELOAD_LDFLAGS_COMMON_DARWIN) -arch x86_64
 PRELOAD_LDFLAGS_S390X_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
 PRELOAD_LDFLAGS_MIPS32_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M32@
 PRELOAD_LDFLAGS_MIPS64_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
-PRELOAD_LDFLAGS_TILEGX_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
 PRELOAD_LDFLAGS_X86_SOLARIS = $(PRELOAD_LDFLAGS_COMMON_SOLARIS) @FLAG_M32@
 PRELOAD_LDFLAGS_AMD64_SOLARIS = $(PRELOAD_LDFLAGS_COMMON_SOLARIS) @FLAG_M64@
 AM_CPPFLAGS = -I$(top_srcdir) -I$(top_srcdir)/include \
@@ -1357,10 +1359,10 @@ SUBDIRS = . $(am__append_8) $(am__append_9) $(am__append_10) \
 	$(am__append_11) $(am__append_12) $(am__append_13) \
 	$(am__append_14) $(am__append_15) $(am__append_16) \
 	$(am__append_17) $(am__append_18) $(am__append_19) \
-	$(am__append_20)
+	$(am__append_20) $(am__append_21) $(am__append_22)
 DIST_SUBDIRS = x86 amd64 ppc32 ppc64 s390x linux \
 		darwin solaris x86-linux amd64-linux arm64-linux \
-		x86-solaris amd64-solaris \
+		x86-solaris amd64-solaris mips32 mips64 \
 		common .
 
 dist_noinst_SCRIPTS = \
@@ -1523,11 +1525,9 @@ EXTRA_DIST = \
 	origin5-bz2.stderr.exp-glibc212-s390x \
 	origin5-bz2.stderr.exp-glibc234-s390x \
 	origin5-bz2.stderr.exp-glibc218-mips32 \
-	origin5-bz2.stderr.exp-glibc212-tilegx \
 	origin6-fp.vgtest origin6-fp.stdout.exp \
 	origin6-fp.stderr.exp-glibc25-amd64 \
 	origin6-fp.stderr.exp-glibc27-ppc64 \
-	origin6-fp.stderr.exp-glibc212-tilegx \
 	overlap.stderr.exp overlap.stdout.exp overlap.vgtest \
 	partiallydefinedeq.vgtest partiallydefinedeq.stderr.exp \
 	partiallydefinedeq.stderr.exp4 \
@@ -1643,7 +1643,7 @@ dw4_CFLAGS = $(AM_CFLAGS) -gdwarf-4 -fdebug-types-section
 descr_belowsp_LDADD = -lpthread
 err_disable3_LDADD = -lpthread
 err_disable4_LDADD = -lpthread
-err_disable4_CFLAGS = $(AM_CFLAGS) $(am__append_28)
+err_disable4_CFLAGS = $(AM_CFLAGS) $(am__append_30)
 reach_thread_register_CFLAGS = $(AM_CFLAGS) -O2
 reach_thread_register_LDADD = -lpthread
 thread_alloca_LDADD = -lpthread
@@ -1658,7 +1658,7 @@ inltemplate_SOURCES = inltemplate.cpp
 inltemplate_CXXFLAGS = $(AM_CXXFLAGS) @FLAG_W_NO_UNINITIALIZED@
 long_namespace_xml_SOURCES = long_namespace_xml.cpp
 manuel1_CFLAGS = $(AM_CFLAGS) @FLAG_W_NO_UNINITIALIZED@
-memalign2_CFLAGS = $(AM_CFLAGS) $(am__append_29)
+memalign2_CFLAGS = $(AM_CFLAGS) $(am__append_31)
 memcmptest_CFLAGS = $(AM_CFLAGS) -fno-builtin-memcmp
 mismatches_SOURCES = mismatches.cpp
 mismatches_CXXFLAGS = $(AM_CXXFLAGS) @FLAG_W_NO_MISMATCHED_NEW_DELETE@
@@ -1680,7 +1680,7 @@ origin6_fp_CFLAGS = $(AM_CFLAGS) -O
 # because then we can't intercept it
 overlap_CFLAGS = $(AM_CFLAGS) -fno-builtin-memcpy -fno-builtin-strcpy
 resvn_stack_CFLAGS = $(AM_CFLAGS) @FLAG_W_NO_UNINITIALIZED@
-sendmsg_CFLAGS = $(AM_CFLAGS) $(am__append_30)
+sendmsg_CFLAGS = $(AM_CFLAGS) $(am__append_32)
 @VGCONF_OS_IS_SOLARIS_TRUE@sendmsg_LDADD = -lsocket -lnsl
 str_tester_CFLAGS = $(AM_CFLAGS) -Wno-shadow \
 			  @FLAG_W_NO_MEMSET_TRANSPOSED_ARGS@
