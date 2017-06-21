@@ -111,7 +111,7 @@ host_triplet = @host@
 
 
 # Make sure that all test programs have threaded errno.
-# Disable largefile support as there are test cases explictly enabling it.
+# Disable largefile support as there are test cases explicitly enabling it.
 @VGCONF_OS_IS_SOLARIS_TRUE@am__append_5 = -D_REENTRANT @SOLARIS_UNDEF_LARGESOURCE@
 @COMPILER_IS_CLANG_TRUE@am__append_6 = -Wno-format-extra-args \
 @COMPILER_IS_CLANG_TRUE@	-Wno-literal-range \
@@ -123,9 +123,9 @@ host_triplet = @host@
 check_PROGRAMS = allexec$(EXEEXT) intdiv$(EXEEXT) ldrt$(EXEEXT) \
 	ldrt_arm$(EXEEXT) neon128$(EXEEXT) neon64$(EXEEXT) \
 	v6intARM$(EXEEXT) v6intThumb$(EXEEXT) v6media$(EXEEXT) \
-	v8crypto_a$(EXEEXT) v8crypto_t$(EXEEXT) v8memory_a$(EXEEXT) \
-	v8memory_t$(EXEEXT) vcvt_fixed_float_VFP$(EXEEXT) vfp$(EXEEXT) \
-	vfpv4_fma$(EXEEXT)
+	v8crypto_a$(EXEEXT) v8crypto_t$(EXEEXT) v8fpsimd_a$(EXEEXT) \
+	v8fpsimd_t$(EXEEXT) v8memory_a$(EXEEXT) v8memory_t$(EXEEXT) \
+	vcvt_fixed_float_VFP$(EXEEXT) vfp$(EXEEXT) vfpv4_fma$(EXEEXT)
 subdir = none/tests/arm
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -192,6 +192,16 @@ v8crypto_t_OBJECTS = v8crypto_t-v8crypto_t.$(OBJEXT)
 v8crypto_t_LDADD = $(LDADD)
 v8crypto_t_LINK = $(CCLD) $(v8crypto_t_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
+v8fpsimd_a_SOURCES = v8fpsimd_a.c
+v8fpsimd_a_OBJECTS = v8fpsimd_a-v8fpsimd_a.$(OBJEXT)
+v8fpsimd_a_LDADD = $(LDADD)
+v8fpsimd_a_LINK = $(CCLD) $(v8fpsimd_a_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
+v8fpsimd_t_SOURCES = v8fpsimd_t.c
+v8fpsimd_t_OBJECTS = v8fpsimd_t-v8fpsimd_t.$(OBJEXT)
+v8fpsimd_t_LDADD = $(LDADD)
+v8fpsimd_t_LINK = $(CCLD) $(v8fpsimd_t_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
 v8memory_a_SOURCES = v8memory_a.c
 v8memory_a_OBJECTS = v8memory_a-v8memory_a.$(OBJEXT)
 v8memory_a_LDADD = $(LDADD)
@@ -250,12 +260,12 @@ am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
 SOURCES = allexec.c intdiv.c ldrt.c ldrt_arm.c neon128.c neon64.c \
 	v6intARM.c v6intThumb.c v6media.c v8crypto_a.c v8crypto_t.c \
-	v8memory_a.c v8memory_t.c vcvt_fixed_float_VFP.c vfp.c \
-	vfpv4_fma.c
+	v8fpsimd_a.c v8fpsimd_t.c v8memory_a.c v8memory_t.c \
+	vcvt_fixed_float_VFP.c vfp.c vfpv4_fma.c
 DIST_SOURCES = allexec.c intdiv.c ldrt.c ldrt_arm.c neon128.c neon64.c \
 	v6intARM.c v6intThumb.c v6media.c v8crypto_a.c v8crypto_t.c \
-	v8memory_a.c v8memory_t.c vcvt_fixed_float_VFP.c vfp.c \
-	vfpv4_fma.c
+	v8fpsimd_a.c v8fpsimd_t.c v8memory_a.c v8memory_t.c \
+	vcvt_fixed_float_VFP.c vfp.c vfpv4_fma.c
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -327,6 +337,7 @@ FLAG_MLONG_DOUBLE_128 = @FLAG_MLONG_DOUBLE_128@
 FLAG_MMMX = @FLAG_MMMX@
 FLAG_MSSE = @FLAG_MSSE@
 FLAG_NO_BUILD_ID = @FLAG_NO_BUILD_ID@
+FLAG_NO_PIE = @FLAG_NO_PIE@
 FLAG_OCTEON = @FLAG_OCTEON@
 FLAG_OCTEON2 = @FLAG_OCTEON2@
 FLAG_T_TEXT = @FLAG_T_TEXT@
@@ -497,6 +508,7 @@ AM_CFLAGS_BASE = -O2 -g -std=gnu99 -Wall -Wmissing-prototypes -Wshadow \
 AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@ = \
 	-I$(top_srcdir) \
 	-I$(top_srcdir)/include \
+	-I$(top_builddir)/include \
 	-I$(top_srcdir)/VEX/pub \
 	-I$(top_builddir)/VEX/pub \
 	-DVGA_@VGCONF_ARCH_PRI@=1 \
@@ -507,6 +519,7 @@ AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@ = \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@AM_CPPFLAGS_@VGCONF_PLATFORM_SEC_CAPS@ = \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir) \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir)/include \
+@VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_builddir)/include \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir)/VEX/pub \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_builddir)/VEX/pub \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-DVGA_@VGCONF_ARCH_SEC@=1 \
@@ -581,8 +594,6 @@ AM_CFLAGS_PSO_MIPS64_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE) @FLAG_MIPS64@ \
 				$(AM_CFLAGS_PSO_BASE)
 
 AM_CCASFLAGS_MIPS64_LINUX = @FLAG_M64@ -g @FLAG_MIPS64@
-AM_CFLAGS_TILEGX_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE)
-AM_CFLAGS_PSO_TILEGX_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE) $(AM_CFLAGS_PSO_BASE)
 AM_FLAG_M3264_X86_SOLARIS = @FLAG_M32@
 AM_CFLAGS_X86_SOLARIS = @FLAG_M32@ @PREFERRED_STACK_BOUNDARY_2@ \
 				$(AM_CFLAGS_BASE) -fomit-frame-pointer \
@@ -627,7 +638,6 @@ PRELOAD_LDFLAGS_AMD64_DARWIN = $(PRELOAD_LDFLAGS_COMMON_DARWIN) -arch x86_64
 PRELOAD_LDFLAGS_S390X_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
 PRELOAD_LDFLAGS_MIPS32_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M32@
 PRELOAD_LDFLAGS_MIPS64_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
-PRELOAD_LDFLAGS_TILEGX_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
 PRELOAD_LDFLAGS_X86_SOLARIS = $(PRELOAD_LDFLAGS_COMMON_SOLARIS) @FLAG_M32@
 PRELOAD_LDFLAGS_AMD64_SOLARIS = $(PRELOAD_LDFLAGS_COMMON_SOLARIS) @FLAG_M64@
 AM_CPPFLAGS = -I$(top_srcdir) -I$(top_srcdir)/include \
@@ -661,6 +671,8 @@ EXTRA_DIST = \
 	v6media.stdout.exp v6media.stderr.exp v6media.vgtest \
 	v8crypto_a.stdout.exp v8crypto_a.stderr.exp v8crypto_a.vgtest \
 	v8crypto_t.stdout.exp v8crypto_t.stderr.exp v8crypto_t.vgtest \
+        v8fpsimd_a.stdout.exp v8fpsimd_a.stderr.exp v8fpsimd_a.vgtest \
+        v8fpsimd_t.stdout.exp v8fpsimd_t.stderr.exp v8fpsimd_t.vgtest \
 	v8memory_a.stdout.exp v8memory_a.stderr.exp v8memory_a.vgtest \
 	v8memory_t.stdout.exp v8memory_t.stderr.exp v8memory_t.vgtest \
 	vcvt_fixed_float_VFP.stdout.exp vcvt_fixed_float_VFP.stderr.exp \
@@ -682,6 +694,8 @@ v6intThumb_CFLAGS = $(AM_CFLAGS) -g -O0 -mcpu=cortex-a8 -mthumb
 v6media_CFLAGS = $(AM_CFLAGS) -g -O0 -mcpu=cortex-a8 -mthumb
 v8crypto_a_CFLAGS = $(AM_CFLAGS) -g -O0 -mfpu=crypto-neon-fp-armv8 -marm
 v8crypto_t_CFLAGS = $(AM_CFLAGS) -g -O0 -mfpu=crypto-neon-fp-armv8 -mthumb
+v8fpsimd_a_CFLAGS = $(AM_CFLAGS) -g -O0 -mfpu=crypto-neon-fp-armv8 -marm
+v8fpsimd_t_CFLAGS = $(AM_CFLAGS) -g -O0 -mfpu=crypto-neon-fp-armv8 -mthumb
 v8memory_a_CFLAGS = $(AM_CFLAGS) -g -O0 \
 			-march=armv8-a -mfpu=crypto-neon-fp-armv8 -marm
 
@@ -786,6 +800,14 @@ v8crypto_t$(EXEEXT): $(v8crypto_t_OBJECTS) $(v8crypto_t_DEPENDENCIES) $(EXTRA_v8
 	@rm -f v8crypto_t$(EXEEXT)
 	$(AM_V_CCLD)$(v8crypto_t_LINK) $(v8crypto_t_OBJECTS) $(v8crypto_t_LDADD) $(LIBS)
 
+v8fpsimd_a$(EXEEXT): $(v8fpsimd_a_OBJECTS) $(v8fpsimd_a_DEPENDENCIES) $(EXTRA_v8fpsimd_a_DEPENDENCIES) 
+	@rm -f v8fpsimd_a$(EXEEXT)
+	$(AM_V_CCLD)$(v8fpsimd_a_LINK) $(v8fpsimd_a_OBJECTS) $(v8fpsimd_a_LDADD) $(LIBS)
+
+v8fpsimd_t$(EXEEXT): $(v8fpsimd_t_OBJECTS) $(v8fpsimd_t_DEPENDENCIES) $(EXTRA_v8fpsimd_t_DEPENDENCIES) 
+	@rm -f v8fpsimd_t$(EXEEXT)
+	$(AM_V_CCLD)$(v8fpsimd_t_LINK) $(v8fpsimd_t_OBJECTS) $(v8fpsimd_t_LDADD) $(LIBS)
+
 v8memory_a$(EXEEXT): $(v8memory_a_OBJECTS) $(v8memory_a_DEPENDENCIES) $(EXTRA_v8memory_a_DEPENDENCIES) 
 	@rm -f v8memory_a$(EXEEXT)
 	$(AM_V_CCLD)$(v8memory_a_LINK) $(v8memory_a_OBJECTS) $(v8memory_a_LDADD) $(LIBS)
@@ -823,6 +845,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/v6media-v6media.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/v8crypto_a-v8crypto_a.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/v8crypto_t-v8crypto_t.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/v8fpsimd_a-v8fpsimd_a.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/v8fpsimd_t-v8fpsimd_t.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/v8memory_a-v8memory_a.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/v8memory_t-v8memory_t.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/vcvt_fixed_float_VFP.Po@am__quote@
@@ -998,6 +1022,34 @@ v8crypto_t-v8crypto_t.obj: v8crypto_t.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='v8crypto_t.c' object='v8crypto_t-v8crypto_t.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(v8crypto_t_CFLAGS) $(CFLAGS) -c -o v8crypto_t-v8crypto_t.obj `if test -f 'v8crypto_t.c'; then $(CYGPATH_W) 'v8crypto_t.c'; else $(CYGPATH_W) '$(srcdir)/v8crypto_t.c'; fi`
+
+v8fpsimd_a-v8fpsimd_a.o: v8fpsimd_a.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(v8fpsimd_a_CFLAGS) $(CFLAGS) -MT v8fpsimd_a-v8fpsimd_a.o -MD -MP -MF $(DEPDIR)/v8fpsimd_a-v8fpsimd_a.Tpo -c -o v8fpsimd_a-v8fpsimd_a.o `test -f 'v8fpsimd_a.c' || echo '$(srcdir)/'`v8fpsimd_a.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/v8fpsimd_a-v8fpsimd_a.Tpo $(DEPDIR)/v8fpsimd_a-v8fpsimd_a.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='v8fpsimd_a.c' object='v8fpsimd_a-v8fpsimd_a.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(v8fpsimd_a_CFLAGS) $(CFLAGS) -c -o v8fpsimd_a-v8fpsimd_a.o `test -f 'v8fpsimd_a.c' || echo '$(srcdir)/'`v8fpsimd_a.c
+
+v8fpsimd_a-v8fpsimd_a.obj: v8fpsimd_a.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(v8fpsimd_a_CFLAGS) $(CFLAGS) -MT v8fpsimd_a-v8fpsimd_a.obj -MD -MP -MF $(DEPDIR)/v8fpsimd_a-v8fpsimd_a.Tpo -c -o v8fpsimd_a-v8fpsimd_a.obj `if test -f 'v8fpsimd_a.c'; then $(CYGPATH_W) 'v8fpsimd_a.c'; else $(CYGPATH_W) '$(srcdir)/v8fpsimd_a.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/v8fpsimd_a-v8fpsimd_a.Tpo $(DEPDIR)/v8fpsimd_a-v8fpsimd_a.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='v8fpsimd_a.c' object='v8fpsimd_a-v8fpsimd_a.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(v8fpsimd_a_CFLAGS) $(CFLAGS) -c -o v8fpsimd_a-v8fpsimd_a.obj `if test -f 'v8fpsimd_a.c'; then $(CYGPATH_W) 'v8fpsimd_a.c'; else $(CYGPATH_W) '$(srcdir)/v8fpsimd_a.c'; fi`
+
+v8fpsimd_t-v8fpsimd_t.o: v8fpsimd_t.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(v8fpsimd_t_CFLAGS) $(CFLAGS) -MT v8fpsimd_t-v8fpsimd_t.o -MD -MP -MF $(DEPDIR)/v8fpsimd_t-v8fpsimd_t.Tpo -c -o v8fpsimd_t-v8fpsimd_t.o `test -f 'v8fpsimd_t.c' || echo '$(srcdir)/'`v8fpsimd_t.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/v8fpsimd_t-v8fpsimd_t.Tpo $(DEPDIR)/v8fpsimd_t-v8fpsimd_t.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='v8fpsimd_t.c' object='v8fpsimd_t-v8fpsimd_t.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(v8fpsimd_t_CFLAGS) $(CFLAGS) -c -o v8fpsimd_t-v8fpsimd_t.o `test -f 'v8fpsimd_t.c' || echo '$(srcdir)/'`v8fpsimd_t.c
+
+v8fpsimd_t-v8fpsimd_t.obj: v8fpsimd_t.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(v8fpsimd_t_CFLAGS) $(CFLAGS) -MT v8fpsimd_t-v8fpsimd_t.obj -MD -MP -MF $(DEPDIR)/v8fpsimd_t-v8fpsimd_t.Tpo -c -o v8fpsimd_t-v8fpsimd_t.obj `if test -f 'v8fpsimd_t.c'; then $(CYGPATH_W) 'v8fpsimd_t.c'; else $(CYGPATH_W) '$(srcdir)/v8fpsimd_t.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/v8fpsimd_t-v8fpsimd_t.Tpo $(DEPDIR)/v8fpsimd_t-v8fpsimd_t.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='v8fpsimd_t.c' object='v8fpsimd_t-v8fpsimd_t.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(v8fpsimd_t_CFLAGS) $(CFLAGS) -c -o v8fpsimd_t-v8fpsimd_t.obj `if test -f 'v8fpsimd_t.c'; then $(CYGPATH_W) 'v8fpsimd_t.c'; else $(CYGPATH_W) '$(srcdir)/v8fpsimd_t.c'; fi`
 
 v8memory_a-v8memory_a.o: v8memory_a.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(v8memory_a_CFLAGS) $(CFLAGS) -MT v8memory_a-v8memory_a.o -MD -MP -MF $(DEPDIR)/v8memory_a-v8memory_a.Tpo -c -o v8memory_a-v8memory_a.o `test -f 'v8memory_a.c' || echo '$(srcdir)/'`v8memory_a.c

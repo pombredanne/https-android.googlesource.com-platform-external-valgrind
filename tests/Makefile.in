@@ -112,7 +112,7 @@ host_triplet = @host@
 
 
 # Make sure that all test programs have threaded errno.
-# Disable largefile support as there are test cases explictly enabling it.
+# Disable largefile support as there are test cases explicitly enabling it.
 @VGCONF_OS_IS_SOLARIS_TRUE@am__append_5 = -D_REENTRANT @SOLARIS_UNDEF_LARGESOURCE@
 @COMPILER_IS_CLANG_TRUE@am__append_6 = -Wno-format-extra-args \
 @COMPILER_IS_CLANG_TRUE@	-Wno-literal-range \
@@ -121,10 +121,11 @@ host_triplet = @host@
 @COMPILER_IS_CLANG_TRUE@	-Wno-uninitialized -Wno-unused-value # \
 @COMPILER_IS_CLANG_TRUE@	clang 3.0.0
 @COMPILER_IS_CLANG_TRUE@am__append_7 = -Wno-unused-private-field    # drd/tests/tsan_unittest.cpp
-check_PROGRAMS = arch_test$(EXEEXT) os_test$(EXEEXT) true$(EXEEXT) \
-	x86_amd64_features$(EXEEXT) s390x_features$(EXEEXT) \
-	mips_features$(EXEEXT) power_insn_available$(EXEEXT) \
-	is_ppc64_BE$(EXEEXT) min_power_isa$(EXEEXT)
+check_PROGRAMS = arch_test$(EXEEXT) os_test$(EXEEXT) \
+	libc_test$(EXEEXT) true$(EXEEXT) x86_amd64_features$(EXEEXT) \
+	s390x_features$(EXEEXT) mips_features$(EXEEXT) \
+	power_insn_available$(EXEEXT) is_ppc64_BE$(EXEEXT) \
+	min_power_isa$(EXEEXT)
 subdir = tests
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -142,6 +143,9 @@ arch_test_LDADD = $(LDADD)
 is_ppc64_BE_SOURCES = is_ppc64_BE.c
 is_ppc64_BE_OBJECTS = is_ppc64_BE.$(OBJEXT)
 is_ppc64_BE_LDADD = $(LDADD)
+libc_test_SOURCES = libc_test.c
+libc_test_OBJECTS = libc_test.$(OBJEXT)
+libc_test_LDADD = $(LDADD)
 min_power_isa_SOURCES = min_power_isa.c
 min_power_isa_OBJECTS = min_power_isa-min_power_isa.$(OBJEXT)
 min_power_isa_LDADD = $(LDADD)
@@ -201,10 +205,10 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = arch_test.c is_ppc64_BE.c min_power_isa.c mips_features.c \
-	os_test.c power_insn_available.c s390x_features.c true.c \
-	x86_amd64_features.c
-DIST_SOURCES = arch_test.c is_ppc64_BE.c min_power_isa.c \
+SOURCES = arch_test.c is_ppc64_BE.c libc_test.c min_power_isa.c \
+	mips_features.c os_test.c power_insn_available.c \
+	s390x_features.c true.c x86_amd64_features.c
+DIST_SOURCES = arch_test.c is_ppc64_BE.c libc_test.c min_power_isa.c \
 	mips_features.c os_test.c power_insn_available.c \
 	s390x_features.c true.c x86_amd64_features.c
 am__can_run_installinfo = \
@@ -280,6 +284,7 @@ FLAG_MLONG_DOUBLE_128 = @FLAG_MLONG_DOUBLE_128@
 FLAG_MMMX = @FLAG_MMMX@
 FLAG_MSSE = @FLAG_MSSE@
 FLAG_NO_BUILD_ID = @FLAG_NO_BUILD_ID@
+FLAG_NO_PIE = @FLAG_NO_PIE@
 FLAG_OCTEON = @FLAG_OCTEON@
 FLAG_OCTEON2 = @FLAG_OCTEON2@
 FLAG_T_TEXT = @FLAG_T_TEXT@
@@ -450,6 +455,7 @@ AM_CFLAGS_BASE = -O2 -g -std=gnu99 -Wall -Wmissing-prototypes -Wshadow \
 AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@ = \
 	-I$(top_srcdir) \
 	-I$(top_srcdir)/include \
+	-I$(top_builddir)/include \
 	-I$(top_srcdir)/VEX/pub \
 	-I$(top_builddir)/VEX/pub \
 	-DVGA_@VGCONF_ARCH_PRI@=1 \
@@ -460,6 +466,7 @@ AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@ = \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@AM_CPPFLAGS_@VGCONF_PLATFORM_SEC_CAPS@ = \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir) \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir)/include \
+@VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_builddir)/include \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir)/VEX/pub \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_builddir)/VEX/pub \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-DVGA_@VGCONF_ARCH_SEC@=1 \
@@ -534,8 +541,6 @@ AM_CFLAGS_PSO_MIPS64_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE) @FLAG_MIPS64@ \
 				$(AM_CFLAGS_PSO_BASE)
 
 AM_CCASFLAGS_MIPS64_LINUX = @FLAG_M64@ -g @FLAG_MIPS64@
-AM_CFLAGS_TILEGX_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE)
-AM_CFLAGS_PSO_TILEGX_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE) $(AM_CFLAGS_PSO_BASE)
 AM_FLAG_M3264_X86_SOLARIS = @FLAG_M32@
 AM_CFLAGS_X86_SOLARIS = @FLAG_M32@ @PREFERRED_STACK_BOUNDARY_2@ \
 				$(AM_CFLAGS_BASE) -fomit-frame-pointer \
@@ -580,7 +585,6 @@ PRELOAD_LDFLAGS_AMD64_DARWIN = $(PRELOAD_LDFLAGS_COMMON_DARWIN) -arch x86_64
 PRELOAD_LDFLAGS_S390X_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
 PRELOAD_LDFLAGS_MIPS32_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M32@
 PRELOAD_LDFLAGS_MIPS64_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
-PRELOAD_LDFLAGS_TILEGX_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
 PRELOAD_LDFLAGS_X86_SOLARIS = $(PRELOAD_LDFLAGS_COMMON_SOLARIS) @FLAG_M32@
 PRELOAD_LDFLAGS_AMD64_SOLARIS = $(PRELOAD_LDFLAGS_COMMON_SOLARIS) @FLAG_M64@
 AM_CPPFLAGS = -I$(top_srcdir) -I$(top_srcdir)/include \
@@ -681,6 +685,10 @@ is_ppc64_BE$(EXEEXT): $(is_ppc64_BE_OBJECTS) $(is_ppc64_BE_DEPENDENCIES) $(EXTRA
 	@rm -f is_ppc64_BE$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(is_ppc64_BE_OBJECTS) $(is_ppc64_BE_LDADD) $(LIBS)
 
+libc_test$(EXEEXT): $(libc_test_OBJECTS) $(libc_test_DEPENDENCIES) $(EXTRA_libc_test_DEPENDENCIES) 
+	@rm -f libc_test$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(libc_test_OBJECTS) $(libc_test_LDADD) $(LIBS)
+
 min_power_isa$(EXEEXT): $(min_power_isa_OBJECTS) $(min_power_isa_DEPENDENCIES) $(EXTRA_min_power_isa_DEPENDENCIES) 
 	@rm -f min_power_isa$(EXEEXT)
 	$(AM_V_CCLD)$(min_power_isa_LINK) $(min_power_isa_OBJECTS) $(min_power_isa_LDADD) $(LIBS)
@@ -717,6 +725,7 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/arch_test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/is_ppc64_BE.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libc_test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/min_power_isa-min_power_isa.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mips_features.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/os_test.Po@am__quote@
