@@ -212,6 +212,7 @@ FLAG_MLONG_DOUBLE_128 = @FLAG_MLONG_DOUBLE_128@
 FLAG_MMMX = @FLAG_MMMX@
 FLAG_MSSE = @FLAG_MSSE@
 FLAG_NO_BUILD_ID = @FLAG_NO_BUILD_ID@
+FLAG_NO_PIE = @FLAG_NO_PIE@
 FLAG_OCTEON = @FLAG_OCTEON@
 FLAG_OCTEON2 = @FLAG_OCTEON2@
 FLAG_T_TEXT = @FLAG_T_TEXT@
@@ -386,6 +387,8 @@ nobase_pkginclude_HEADERS = \
 	pub_tool_vkiscnums_asm.h	\
 	pub_tool_wordfm.h		\
 	pub_tool_xarray.h		\
+	pub_tool_xtree.h		\
+	pub_tool_xtmemory.h		\
 	valgrind.h			\
 	vki/vki-linux.h			\
 	vki/vki-darwin.h		\

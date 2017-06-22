@@ -111,7 +111,7 @@ host_triplet = @host@
 
 
 # Make sure that all test programs have threaded errno.
-# Disable largefile support as there are test cases explictly enabling it.
+# Disable largefile support as there are test cases explicitly enabling it.
 @VGCONF_OS_IS_SOLARIS_TRUE@am__append_5 = -D_REENTRANT @SOLARIS_UNDEF_LARGESOURCE@
 @COMPILER_IS_CLANG_TRUE@am__append_6 = -Wno-format-extra-args \
 @COMPILER_IS_CLANG_TRUE@	-Wno-literal-range \
@@ -132,14 +132,15 @@ check_PROGRAMS = aad_aam$(EXEEXT) allexec$(EXEEXT) badseg$(EXEEXT) \
 	bug125959-x86$(EXEEXT) bug126147-x86$(EXEEXT) \
 	bug132813-x86$(EXEEXT) bug135421-x86$(EXEEXT) \
 	bug137714-x86$(EXEEXT) bug152818-x86$(EXEEXT) \
-	cmpxchg8b$(EXEEXT) cpuid$(EXEEXT) cse_fail$(EXEEXT) \
-	fcmovnu$(EXEEXT) fpu_lazy_eflags$(EXEEXT) fxtract$(EXEEXT) \
-	getseg$(EXEEXT) incdec_alt$(EXEEXT) $(am__EXEEXT_5) \
-	int$(EXEEXT) jcxz$(EXEEXT) lahf$(EXEEXT) looper$(EXEEXT) \
-	movx$(EXEEXT) sbbmisc$(EXEEXT) shift_ndep$(EXEEXT) \
-	smc1$(EXEEXT) x86locked$(EXEEXT) x87trigOOR$(EXEEXT) \
-	yield$(EXEEXT) xadd$(EXEEXT) $(am__EXEEXT_6) $(am__EXEEXT_7) \
-	$(am__EXEEXT_8) $(am__EXEEXT_9) $(am__EXEEXT_10)
+	cet_nops$(EXEEXT) cmpxchg8b$(EXEEXT) cpuid$(EXEEXT) \
+	cse_fail$(EXEEXT) fcmovnu$(EXEEXT) fpu_lazy_eflags$(EXEEXT) \
+	fxtract$(EXEEXT) getseg$(EXEEXT) incdec_alt$(EXEEXT) \
+	$(am__EXEEXT_5) int$(EXEEXT) jcxz$(EXEEXT) lahf$(EXEEXT) \
+	looper$(EXEEXT) movx$(EXEEXT) sbbmisc$(EXEEXT) \
+	shift_ndep$(EXEEXT) smc1$(EXEEXT) x86locked$(EXEEXT) \
+	x87trigOOR$(EXEEXT) yield$(EXEEXT) xadd$(EXEEXT) \
+	$(am__EXEEXT_6) $(am__EXEEXT_7) $(am__EXEEXT_8) \
+	$(am__EXEEXT_9) $(am__EXEEXT_10)
 @BUILD_SSSE3_TESTS_TRUE@am__append_12 = ssse3_misaligned
 @BUILD_LZCNT_TESTS_TRUE@am__append_13 = lzcnt32
 @BUILD_MOVBE_TESTS_TRUE@am__append_14 = movbe
@@ -215,6 +216,9 @@ bug137714_x86_LDADD = $(LDADD)
 bug152818_x86_SOURCES = bug152818-x86.c
 bug152818_x86_OBJECTS = bug152818-x86.$(OBJEXT)
 bug152818_x86_LDADD = $(LDADD)
+cet_nops_SOURCES = cet_nops.c
+cet_nops_OBJECTS = cet_nops.$(OBJEXT)
+cet_nops_LDADD = $(LDADD)
 cmpxchg8b_SOURCES = cmpxchg8b.c
 cmpxchg8b_OBJECTS = cmpxchg8b.$(OBJEXT)
 cmpxchg8b_LDADD = $(LDADD)
@@ -364,9 +368,9 @@ am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
 SOURCES = aad_aam.c allexec.c badseg.c bt_everything.c bt_literal.c \
 	bug125959-x86.c bug126147-x86.c bug132813-x86.c \
-	bug135421-x86.c bug137714-x86.c bug152818-x86.c cmpxchg8b.c \
-	$(cpuid_SOURCES) cse_fail.c faultstatus.c fcmovnu.c \
-	fpu_lazy_eflags.c fxtract.c getseg.c incdec_alt.c \
+	bug135421-x86.c bug137714-x86.c bug152818-x86.c cet_nops.c \
+	cmpxchg8b.c $(cpuid_SOURCES) cse_fail.c faultstatus.c \
+	fcmovnu.c fpu_lazy_eflags.c fxtract.c getseg.c incdec_alt.c \
 	$(insn_basic_SOURCES) $(insn_cmov_SOURCES) $(insn_fpu_SOURCES) \
 	$(insn_mmx_SOURCES) $(insn_mmxext_SOURCES) $(insn_sse_SOURCES) \
 	$(insn_sse2_SOURCES) $(insn_sse3_SOURCES) \
@@ -375,9 +379,9 @@ SOURCES = aad_aam.c allexec.c badseg.c bt_everything.c bt_literal.c \
 	ssse3_misaligned.c x86locked.c x87trigOOR.c xadd.c yield.c
 DIST_SOURCES = aad_aam.c allexec.c badseg.c bt_everything.c \
 	bt_literal.c bug125959-x86.c bug126147-x86.c bug132813-x86.c \
-	bug135421-x86.c bug137714-x86.c bug152818-x86.c cmpxchg8b.c \
-	$(cpuid_SOURCES) cse_fail.c faultstatus.c fcmovnu.c \
-	fpu_lazy_eflags.c fxtract.c getseg.c incdec_alt.c \
+	bug135421-x86.c bug137714-x86.c bug152818-x86.c cet_nops.c \
+	cmpxchg8b.c $(cpuid_SOURCES) cse_fail.c faultstatus.c \
+	fcmovnu.c fpu_lazy_eflags.c fxtract.c getseg.c incdec_alt.c \
 	$(insn_basic_SOURCES) $(insn_cmov_SOURCES) $(insn_fpu_SOURCES) \
 	$(insn_mmx_SOURCES) $(insn_mmxext_SOURCES) $(insn_sse_SOURCES) \
 	$(insn_sse2_SOURCES) $(insn_sse3_SOURCES) \
@@ -455,6 +459,7 @@ FLAG_MLONG_DOUBLE_128 = @FLAG_MLONG_DOUBLE_128@
 FLAG_MMMX = @FLAG_MMMX@
 FLAG_MSSE = @FLAG_MSSE@
 FLAG_NO_BUILD_ID = @FLAG_NO_BUILD_ID@
+FLAG_NO_PIE = @FLAG_NO_PIE@
 FLAG_OCTEON = @FLAG_OCTEON@
 FLAG_OCTEON2 = @FLAG_OCTEON2@
 FLAG_T_TEXT = @FLAG_T_TEXT@
@@ -625,6 +630,7 @@ AM_CFLAGS_BASE = -O2 -g -std=gnu99 -Wall -Wmissing-prototypes -Wshadow \
 AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@ = \
 	-I$(top_srcdir) \
 	-I$(top_srcdir)/include \
+	-I$(top_builddir)/include \
 	-I$(top_srcdir)/VEX/pub \
 	-I$(top_builddir)/VEX/pub \
 	-DVGA_@VGCONF_ARCH_PRI@=1 \
@@ -635,6 +641,7 @@ AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@ = \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@AM_CPPFLAGS_@VGCONF_PLATFORM_SEC_CAPS@ = \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir) \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir)/include \
+@VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_builddir)/include \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir)/VEX/pub \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_builddir)/VEX/pub \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-DVGA_@VGCONF_ARCH_SEC@=1 \
@@ -709,8 +716,6 @@ AM_CFLAGS_PSO_MIPS64_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE) @FLAG_MIPS64@ \
 				$(AM_CFLAGS_PSO_BASE)
 
 AM_CCASFLAGS_MIPS64_LINUX = @FLAG_M64@ -g @FLAG_MIPS64@
-AM_CFLAGS_TILEGX_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE)
-AM_CFLAGS_PSO_TILEGX_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE) $(AM_CFLAGS_PSO_BASE)
 AM_FLAG_M3264_X86_SOLARIS = @FLAG_M32@
 AM_CFLAGS_X86_SOLARIS = @FLAG_M32@ @PREFERRED_STACK_BOUNDARY_2@ \
 				$(AM_CFLAGS_BASE) -fomit-frame-pointer \
@@ -755,7 +760,6 @@ PRELOAD_LDFLAGS_AMD64_DARWIN = $(PRELOAD_LDFLAGS_COMMON_DARWIN) -arch x86_64
 PRELOAD_LDFLAGS_S390X_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
 PRELOAD_LDFLAGS_MIPS32_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M32@
 PRELOAD_LDFLAGS_MIPS64_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
-PRELOAD_LDFLAGS_TILEGX_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
 PRELOAD_LDFLAGS_X86_SOLARIS = $(PRELOAD_LDFLAGS_COMMON_SOLARIS) @FLAG_M32@
 PRELOAD_LDFLAGS_AMD64_SOLARIS = $(PRELOAD_LDFLAGS_COMMON_SOLARIS) @FLAG_M64@
 AM_CPPFLAGS = -I$(top_srcdir) -I$(top_srcdir)/include \
@@ -798,6 +802,7 @@ EXTRA_DIST = \
 	bug135421-x86.stderr.exp bug135421-x86.stdout.exp bug135421-x86.vgtest \
 	bug137714-x86.stderr.exp bug137714-x86.stdout.exp bug137714-x86.vgtest \
 	bug152818-x86.stderr.exp bug152818-x86.stdout.exp bug152818-x86.vgtest \
+	cet_nops.stderr.exp cet_nops.stdout.exp cet_nops.vgtest \
 	cmpxchg8b.stderr.exp cmpxchg8b.stdout.exp cmpxchg8b.vgtest \
 	cpuid.stderr.exp cpuid.stdout.exp cpuid.vgtest \
 	cse_fail.stderr.exp cse_fail.stdout.exp cse_fail.vgtest \
@@ -942,6 +947,10 @@ bug137714-x86$(EXEEXT): $(bug137714_x86_OBJECTS) $(bug137714_x86_DEPENDENCIES) $
 bug152818-x86$(EXEEXT): $(bug152818_x86_OBJECTS) $(bug152818_x86_DEPENDENCIES) $(EXTRA_bug152818_x86_DEPENDENCIES) 
 	@rm -f bug152818-x86$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(bug152818_x86_OBJECTS) $(bug152818_x86_LDADD) $(LIBS)
+
+cet_nops$(EXEEXT): $(cet_nops_OBJECTS) $(cet_nops_DEPENDENCIES) $(EXTRA_cet_nops_DEPENDENCIES) 
+	@rm -f cet_nops$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(cet_nops_OBJECTS) $(cet_nops_LDADD) $(LIBS)
 
 cmpxchg8b$(EXEEXT): $(cmpxchg8b_OBJECTS) $(cmpxchg8b_DEPENDENCIES) $(EXTRA_cmpxchg8b_DEPENDENCIES) 
 	@rm -f cmpxchg8b$(EXEEXT)
@@ -1096,6 +1105,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bug135421-x86.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bug137714-x86.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bug152818-x86.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cet_nops.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmpxchg8b.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cpuid_c.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cpuid_s.Po@am__quote@
