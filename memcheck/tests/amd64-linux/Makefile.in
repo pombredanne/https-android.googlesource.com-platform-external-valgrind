@@ -111,7 +111,7 @@ host_triplet = @host@
 
 
 # Make sure that all test programs have threaded errno.
-# Disable largefile support as there are test cases explictly enabling it.
+# Disable largefile support as there are test cases explicitly enabling it.
 @VGCONF_OS_IS_SOLARIS_TRUE@am__append_5 = -D_REENTRANT @SOLARIS_UNDEF_LARGESOURCE@
 @COMPILER_IS_CLANG_TRUE@am__append_6 = -Wno-format-extra-args \
 @COMPILER_IS_CLANG_TRUE@	-Wno-literal-range \
@@ -139,6 +139,8 @@ access_below_sp_LDADD = $(LDADD)
 am_defcfaexpr_OBJECTS = defcfaexpr.$(OBJEXT)
 defcfaexpr_OBJECTS = $(am_defcfaexpr_OBJECTS)
 defcfaexpr_LDADD = $(LDADD)
+defcfaexpr_LINK = $(CCLD) $(defcfaexpr_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
 int3_amd64_SOURCES = int3-amd64.c
 int3_amd64_OBJECTS = int3-amd64.$(OBJEXT)
 int3_amd64_LDADD = $(LDADD)
@@ -250,6 +252,7 @@ FLAG_MLONG_DOUBLE_128 = @FLAG_MLONG_DOUBLE_128@
 FLAG_MMMX = @FLAG_MMMX@
 FLAG_MSSE = @FLAG_MSSE@
 FLAG_NO_BUILD_ID = @FLAG_NO_BUILD_ID@
+FLAG_NO_PIE = @FLAG_NO_PIE@
 FLAG_OCTEON = @FLAG_OCTEON@
 FLAG_OCTEON2 = @FLAG_OCTEON2@
 FLAG_T_TEXT = @FLAG_T_TEXT@
@@ -420,6 +423,7 @@ AM_CFLAGS_BASE = -O2 -g -std=gnu99 -Wall -Wmissing-prototypes -Wshadow \
 AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@ = \
 	-I$(top_srcdir) \
 	-I$(top_srcdir)/include \
+	-I$(top_builddir)/include \
 	-I$(top_srcdir)/VEX/pub \
 	-I$(top_builddir)/VEX/pub \
 	-DVGA_@VGCONF_ARCH_PRI@=1 \
@@ -430,6 +434,7 @@ AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@ = \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@AM_CPPFLAGS_@VGCONF_PLATFORM_SEC_CAPS@ = \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir) \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir)/include \
+@VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_builddir)/include \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir)/VEX/pub \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_builddir)/VEX/pub \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-DVGA_@VGCONF_ARCH_SEC@=1 \
@@ -504,8 +509,6 @@ AM_CFLAGS_PSO_MIPS64_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE) @FLAG_MIPS64@ \
 				$(AM_CFLAGS_PSO_BASE)
 
 AM_CCASFLAGS_MIPS64_LINUX = @FLAG_M64@ -g @FLAG_MIPS64@
-AM_CFLAGS_TILEGX_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE)
-AM_CFLAGS_PSO_TILEGX_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE) $(AM_CFLAGS_PSO_BASE)
 AM_FLAG_M3264_X86_SOLARIS = @FLAG_M32@
 AM_CFLAGS_X86_SOLARIS = @FLAG_M32@ @PREFERRED_STACK_BOUNDARY_2@ \
 				$(AM_CFLAGS_BASE) -fomit-frame-pointer \
@@ -550,7 +553,6 @@ PRELOAD_LDFLAGS_AMD64_DARWIN = $(PRELOAD_LDFLAGS_COMMON_DARWIN) -arch x86_64
 PRELOAD_LDFLAGS_S390X_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
 PRELOAD_LDFLAGS_MIPS32_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M32@
 PRELOAD_LDFLAGS_MIPS64_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
-PRELOAD_LDFLAGS_TILEGX_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
 PRELOAD_LDFLAGS_X86_SOLARIS = $(PRELOAD_LDFLAGS_COMMON_SOLARIS) @FLAG_M32@
 PRELOAD_LDFLAGS_AMD64_SOLARIS = $(PRELOAD_LDFLAGS_COMMON_SOLARIS) @FLAG_M64@
 AM_CPPFLAGS = -I$(top_srcdir) -I$(top_srcdir)/include \
@@ -584,6 +586,7 @@ EXTRA_DIST = \
 	int3-amd64.vgtest int3-amd64.stderr.exp int3-amd64.stdout.exp
 
 defcfaexpr_SOURCES = defcfaexpr.S
+defcfaexpr_CFLAGS = $(AM_CFLAGS) @FLAG_NO_PIE@ 
 all: all-am
 
 .SUFFIXES:
@@ -628,7 +631,7 @@ access_below_sp$(EXEEXT): $(access_below_sp_OBJECTS) $(access_below_sp_DEPENDENC
 
 defcfaexpr$(EXEEXT): $(defcfaexpr_OBJECTS) $(defcfaexpr_DEPENDENCIES) $(EXTRA_defcfaexpr_DEPENDENCIES) 
 	@rm -f defcfaexpr$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(defcfaexpr_OBJECTS) $(defcfaexpr_LDADD) $(LIBS)
+	$(AM_V_CCLD)$(defcfaexpr_LINK) $(defcfaexpr_OBJECTS) $(defcfaexpr_LDADD) $(LIBS)
 
 int3-amd64$(EXEEXT): $(int3_amd64_OBJECTS) $(int3_amd64_DEPENDENCIES) $(EXTRA_int3_amd64_DEPENDENCIES) 
 	@rm -f int3-amd64$(EXEEXT)

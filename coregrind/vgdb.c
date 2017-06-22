@@ -6,7 +6,7 @@
    This file is part of Valgrind, a dynamic binary instrumentation
    framework.
 
-   Copyright (C) 2011-2015 Philippe Waroquiers
+   Copyright (C) 2011-2017 Philippe Waroquiers
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public License as
@@ -682,11 +682,7 @@ void received_signal (int signum)
       sigpipe++;
    } else if (signum == SIGALRM) {
       sigalrm++;
-#if defined(VGPV_amd64_linux_android) \
-    || defined(VGPV_arm_linux_android) \
-    || defined(VGPV_x86_linux_android) \
-    || defined(VGPV_mips32_linux_android) \
-    || defined(VGPV_arm64_linux_android)
+#if defined(__BIONIC__)
       /* Android has no pthread_cancel. As it also does not have
          an invoker implementation, there is no need for cleanup action.
          So, we just do nothing. */
@@ -1011,7 +1007,7 @@ void standalone_send_commands(int pid,
       write_buf(to_pid, hexcommand, strlen(hexcommand), 
                 "writing hex command to pid", /* notify */ True);
 
-      /* we exit of the below loop explicitely when the command has
+      /* we exit of the below loop explicitly when the command has
          been handled or because a signal handler will set
          shutting_down. */
       while (!shutting_down) {
