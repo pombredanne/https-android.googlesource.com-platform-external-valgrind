@@ -193,6 +193,8 @@ vg_local_src_files := \
 	coregrind/m_vkiscnums.c \
 	coregrind/m_wordfm.c \
 	coregrind/m_xarray.c \
+	coregrind/m_xtmemory.c \
+	coregrind/m_xtree.c \
 	coregrind/m_aspacehl.c \
 	coregrind/m_aspacemgr/aspacemgr-common.c \
 	coregrind/m_aspacemgr/aspacemgr-linux.c \
@@ -218,6 +220,7 @@ vg_local_src_files := \
 	coregrind/m_demangle/d-demangle.c \
 	coregrind/m_demangle/demangle.c \
 	coregrind/m_demangle/dyn-string.c \
+	coregrind/m_demangle/rust-demangle.c \
 	coregrind/m_demangle/safe-ctype.c \
 	coregrind/m_dispatch/dispatch-x86-linux.S \
 	coregrind/m_dispatch/dispatch-amd64-linux.S \
