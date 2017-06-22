@@ -111,7 +111,7 @@ host_triplet = @host@
 
 
 # Make sure that all test programs have threaded errno.
-# Disable largefile support as there are test cases explictly enabling it.
+# Disable largefile support as there are test cases explicitly enabling it.
 @VGCONF_OS_IS_SOLARIS_TRUE@am__append_5 = -D_REENTRANT @SOLARIS_UNDEF_LARGESOURCE@
 @COMPILER_IS_CLANG_TRUE@am__append_6 = -Wno-format-extra-args \
 @COMPILER_IS_CLANG_TRUE@	-Wno-literal-range \
@@ -120,7 +120,7 @@ host_triplet = @host@
 @COMPILER_IS_CLANG_TRUE@	-Wno-uninitialized -Wno-unused-value # \
 @COMPILER_IS_CLANG_TRUE@	clang 3.0.0
 @COMPILER_IS_CLANG_TRUE@am__append_7 = -Wno-unused-private-field    # drd/tests/tsan_unittest.cpp
-check_PROGRAMS = coredump_single_thread$(EXEEXT) \
+check_PROGRAMS = cet_nops_fs$(EXEEXT) coredump_single_thread$(EXEEXT) \
 	coredump_single_thread_sse$(EXEEXT) \
 	syscall_return_args$(EXEEXT)
 subdir = none/tests/amd64-solaris
@@ -134,6 +134,9 @@ mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
+cet_nops_fs_SOURCES = cet_nops_fs.c
+cet_nops_fs_OBJECTS = cet_nops_fs.$(OBJEXT)
+cet_nops_fs_LDADD = $(LDADD)
 coredump_single_thread_SOURCES = coredump_single_thread.c
 coredump_single_thread_OBJECTS = coredump_single_thread.$(OBJEXT)
 coredump_single_thread_LDADD = $(LDADD)
@@ -173,10 +176,10 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = coredump_single_thread.c coredump_single_thread_sse.c \
-	syscall_return_args.c
-DIST_SOURCES = coredump_single_thread.c coredump_single_thread_sse.c \
-	syscall_return_args.c
+SOURCES = cet_nops_fs.c coredump_single_thread.c \
+	coredump_single_thread_sse.c syscall_return_args.c
+DIST_SOURCES = cet_nops_fs.c coredump_single_thread.c \
+	coredump_single_thread_sse.c syscall_return_args.c
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -248,6 +251,7 @@ FLAG_MLONG_DOUBLE_128 = @FLAG_MLONG_DOUBLE_128@
 FLAG_MMMX = @FLAG_MMMX@
 FLAG_MSSE = @FLAG_MSSE@
 FLAG_NO_BUILD_ID = @FLAG_NO_BUILD_ID@
+FLAG_NO_PIE = @FLAG_NO_PIE@
 FLAG_OCTEON = @FLAG_OCTEON@
 FLAG_OCTEON2 = @FLAG_OCTEON2@
 FLAG_T_TEXT = @FLAG_T_TEXT@
@@ -418,6 +422,7 @@ AM_CFLAGS_BASE = -O2 -g -std=gnu99 -Wall -Wmissing-prototypes -Wshadow \
 AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@ = \
 	-I$(top_srcdir) \
 	-I$(top_srcdir)/include \
+	-I$(top_builddir)/include \
 	-I$(top_srcdir)/VEX/pub \
 	-I$(top_builddir)/VEX/pub \
 	-DVGA_@VGCONF_ARCH_PRI@=1 \
@@ -428,6 +433,7 @@ AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@ = \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@AM_CPPFLAGS_@VGCONF_PLATFORM_SEC_CAPS@ = \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir) \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir)/include \
+@VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_builddir)/include \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir)/VEX/pub \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_builddir)/VEX/pub \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-DVGA_@VGCONF_ARCH_SEC@=1 \
@@ -502,8 +508,6 @@ AM_CFLAGS_PSO_MIPS64_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE) @FLAG_MIPS64@ \
 				$(AM_CFLAGS_PSO_BASE)
 
 AM_CCASFLAGS_MIPS64_LINUX = @FLAG_M64@ -g @FLAG_MIPS64@
-AM_CFLAGS_TILEGX_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE)
-AM_CFLAGS_PSO_TILEGX_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE) $(AM_CFLAGS_PSO_BASE)
 AM_FLAG_M3264_X86_SOLARIS = @FLAG_M32@
 AM_CFLAGS_X86_SOLARIS = @FLAG_M32@ @PREFERRED_STACK_BOUNDARY_2@ \
 				$(AM_CFLAGS_BASE) -fomit-frame-pointer \
@@ -548,7 +552,6 @@ PRELOAD_LDFLAGS_AMD64_DARWIN = $(PRELOAD_LDFLAGS_COMMON_DARWIN) -arch x86_64
 PRELOAD_LDFLAGS_S390X_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
 PRELOAD_LDFLAGS_MIPS32_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M32@
 PRELOAD_LDFLAGS_MIPS64_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
-PRELOAD_LDFLAGS_TILEGX_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
 PRELOAD_LDFLAGS_X86_SOLARIS = $(PRELOAD_LDFLAGS_COMMON_SOLARIS) @FLAG_M32@
 PRELOAD_LDFLAGS_AMD64_SOLARIS = $(PRELOAD_LDFLAGS_COMMON_SOLARIS) @FLAG_M64@
 AM_CPPFLAGS = -I$(top_srcdir) -I$(top_srcdir)/include \
@@ -576,6 +579,7 @@ dist_noinst_SCRIPTS = \
 	filter_stderr
 
 EXTRA_DIST = \
+	cet_nops_fs.stderr.exp cet_nops_fs.stdout.exp cet_nops_fs.vgtest \
 	coredump_single_thread.post.exp coredump_single_thread.stderr.exp \
 	coredump_single_thread.stdout.exp coredump_single_thread.vgtest \
 	coredump_single_thread_sse.post.exp coredump_single_thread_sse.stderr.exp \
@@ -620,6 +624,10 @@ $(am__aclocal_m4_deps):
 clean-checkPROGRAMS:
 	-test -z "$(check_PROGRAMS)" || rm -f $(check_PROGRAMS)
 
+cet_nops_fs$(EXEEXT): $(cet_nops_fs_OBJECTS) $(cet_nops_fs_DEPENDENCIES) $(EXTRA_cet_nops_fs_DEPENDENCIES) 
+	@rm -f cet_nops_fs$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(cet_nops_fs_OBJECTS) $(cet_nops_fs_LDADD) $(LIBS)
+
 coredump_single_thread$(EXEEXT): $(coredump_single_thread_OBJECTS) $(coredump_single_thread_DEPENDENCIES) $(EXTRA_coredump_single_thread_DEPENDENCIES) 
 	@rm -f coredump_single_thread$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(coredump_single_thread_OBJECTS) $(coredump_single_thread_LDADD) $(LIBS)
@@ -638,6 +646,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cet_nops_fs.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/coredump_single_thread.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/coredump_single_thread_sse.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/syscall_return_args.Po@am__quote@

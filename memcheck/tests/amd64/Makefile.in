@@ -111,7 +111,7 @@ host_triplet = @host@
 
 
 # Make sure that all test programs have threaded errno.
-# Disable largefile support as there are test cases explictly enabling it.
+# Disable largefile support as there are test cases explicitly enabling it.
 @VGCONF_OS_IS_SOLARIS_TRUE@am__append_5 = -D_REENTRANT @SOLARIS_UNDEF_LARGESOURCE@
 @COMPILER_IS_CLANG_TRUE@am__append_6 = -Wno-format-extra-args \
 @COMPILER_IS_CLANG_TRUE@	-Wno-literal-range \
@@ -159,8 +159,10 @@ bug279698_SOURCES = bug279698.c
 bug279698_OBJECTS = bug279698.$(OBJEXT)
 bug279698_LDADD = $(LDADD)
 fxsave_amd64_SOURCES = fxsave-amd64.c
-fxsave_amd64_OBJECTS = fxsave-amd64.$(OBJEXT)
+fxsave_amd64_OBJECTS = fxsave_amd64-fxsave-amd64.$(OBJEXT)
 fxsave_amd64_LDADD = $(LDADD)
+fxsave_amd64_LINK = $(CCLD) $(fxsave_amd64_CFLAGS) $(CFLAGS) \
+	$(AM_LDFLAGS) $(LDFLAGS) -o $@
 insn_bsfl_SOURCES = insn-bsfl.c
 insn_bsfl_OBJECTS = insn-bsfl.$(OBJEXT)
 insn_bsfl_LDADD = $(LDADD)
@@ -184,8 +186,10 @@ sh_mem_vec256_SOURCES = sh-mem-vec256.c
 sh_mem_vec256_OBJECTS = sh-mem-vec256.$(OBJEXT)
 sh_mem_vec256_LDADD = $(LDADD)
 shr_edx_SOURCES = shr_edx.c
-shr_edx_OBJECTS = shr_edx.$(OBJEXT)
+shr_edx_OBJECTS = shr_edx-shr_edx.$(OBJEXT)
 shr_edx_LDADD = $(LDADD)
+shr_edx_LINK = $(CCLD) $(shr_edx_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
 sse_memory_SOURCES = sse_memory.c
 sse_memory_OBJECTS = sse_memory.$(OBJEXT)
 sse_memory_LDADD = $(LDADD)
@@ -307,6 +311,7 @@ FLAG_MLONG_DOUBLE_128 = @FLAG_MLONG_DOUBLE_128@
 FLAG_MMMX = @FLAG_MMMX@
 FLAG_MSSE = @FLAG_MSSE@
 FLAG_NO_BUILD_ID = @FLAG_NO_BUILD_ID@
+FLAG_NO_PIE = @FLAG_NO_PIE@
 FLAG_OCTEON = @FLAG_OCTEON@
 FLAG_OCTEON2 = @FLAG_OCTEON2@
 FLAG_T_TEXT = @FLAG_T_TEXT@
@@ -477,6 +482,7 @@ AM_CFLAGS_BASE = -O2 -g -std=gnu99 -Wall -Wmissing-prototypes -Wshadow \
 AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@ = \
 	-I$(top_srcdir) \
 	-I$(top_srcdir)/include \
+	-I$(top_builddir)/include \
 	-I$(top_srcdir)/VEX/pub \
 	-I$(top_builddir)/VEX/pub \
 	-DVGA_@VGCONF_ARCH_PRI@=1 \
@@ -487,6 +493,7 @@ AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@ = \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@AM_CPPFLAGS_@VGCONF_PLATFORM_SEC_CAPS@ = \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir) \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir)/include \
+@VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_builddir)/include \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir)/VEX/pub \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_builddir)/VEX/pub \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-DVGA_@VGCONF_ARCH_SEC@=1 \
@@ -561,8 +568,6 @@ AM_CFLAGS_PSO_MIPS64_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE) @FLAG_MIPS64@ \
 				$(AM_CFLAGS_PSO_BASE)
 
 AM_CCASFLAGS_MIPS64_LINUX = @FLAG_M64@ -g @FLAG_MIPS64@
-AM_CFLAGS_TILEGX_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE)
-AM_CFLAGS_PSO_TILEGX_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE) $(AM_CFLAGS_PSO_BASE)
 AM_FLAG_M3264_X86_SOLARIS = @FLAG_M32@
 AM_CFLAGS_X86_SOLARIS = @FLAG_M32@ @PREFERRED_STACK_BOUNDARY_2@ \
 				$(AM_CFLAGS_BASE) -fomit-frame-pointer \
@@ -607,7 +612,6 @@ PRELOAD_LDFLAGS_AMD64_DARWIN = $(PRELOAD_LDFLAGS_COMMON_DARWIN) -arch x86_64
 PRELOAD_LDFLAGS_S390X_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
 PRELOAD_LDFLAGS_MIPS32_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M32@
 PRELOAD_LDFLAGS_MIPS64_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
-PRELOAD_LDFLAGS_TILEGX_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
 PRELOAD_LDFLAGS_X86_SOLARIS = $(PRELOAD_LDFLAGS_COMMON_SOLARIS) @FLAG_M32@
 PRELOAD_LDFLAGS_AMD64_SOLARIS = $(PRELOAD_LDFLAGS_COMMON_SOLARIS) @FLAG_M64@
 AM_CPPFLAGS = -I$(top_srcdir) -I$(top_srcdir)/include \
@@ -662,11 +666,13 @@ EXTRA_DIST = \
 	xor-undef-amd64.vgtest \
 	xsave-avx.vgtest xsave-avx.stdout.exp xsave-avx.stderr.exp
 
+fxsave_amd64_CFLAGS = $(AM_CFLAGS) @FLAG_NO_PIE@
 insn_pcmpistri_CFLAGS = $(AM_CFLAGS) $(am__append_11)
 more_x87_fp_CFLAGS = $(AM_CFLAGS) -O -ffast-math -mfpmath=387 \
 				-mfancy-math-387
 
 more_x87_fp_LDADD = -lm
+shr_edx_CFLAGS = $(AM_CFLAGS) @FLAG_NO_PIE@
 all: all-am
 
 .SUFFIXES:
@@ -719,7 +725,7 @@ bug279698$(EXEEXT): $(bug279698_OBJECTS) $(bug279698_DEPENDENCIES) $(EXTRA_bug27
 
 fxsave-amd64$(EXEEXT): $(fxsave_amd64_OBJECTS) $(fxsave_amd64_DEPENDENCIES) $(EXTRA_fxsave_amd64_DEPENDENCIES) 
 	@rm -f fxsave-amd64$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(fxsave_amd64_OBJECTS) $(fxsave_amd64_LDADD) $(LIBS)
+	$(AM_V_CCLD)$(fxsave_amd64_LINK) $(fxsave_amd64_OBJECTS) $(fxsave_amd64_LDADD) $(LIBS)
 
 insn-bsfl$(EXEEXT): $(insn_bsfl_OBJECTS) $(insn_bsfl_DEPENDENCIES) $(EXTRA_insn_bsfl_DEPENDENCIES) 
 	@rm -f insn-bsfl$(EXEEXT)
@@ -747,7 +753,7 @@ sh-mem-vec256$(EXEEXT): $(sh_mem_vec256_OBJECTS) $(sh_mem_vec256_DEPENDENCIES) $
 
 shr_edx$(EXEEXT): $(shr_edx_OBJECTS) $(shr_edx_DEPENDENCIES) $(EXTRA_shr_edx_DEPENDENCIES) 
 	@rm -f shr_edx$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(shr_edx_OBJECTS) $(shr_edx_LDADD) $(LIBS)
+	$(AM_V_CCLD)$(shr_edx_LINK) $(shr_edx_OBJECTS) $(shr_edx_LDADD) $(LIBS)
 
 sse_memory$(EXEEXT): $(sse_memory_OBJECTS) $(sse_memory_DEPENDENCIES) $(EXTRA_sse_memory_DEPENDENCIES) 
 	@rm -f sse_memory$(EXEEXT)
@@ -770,14 +776,14 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bt_everything.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bug132146.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bug279698.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/fxsave-amd64.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/fxsave_amd64-fxsave-amd64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/insn-bsfl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/insn-pmovmskb.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/insn_pcmpistri-insn-pcmpistri.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/more_x87_fp-more_x87_fp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sh-mem-vec128.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sh-mem-vec256.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/shr_edx.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/shr_edx-shr_edx.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sse_memory.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xor-undef-amd64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xsave-avx.Po@am__quote@
@@ -797,6 +803,20 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
+
+fxsave_amd64-fxsave-amd64.o: fxsave-amd64.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(fxsave_amd64_CFLAGS) $(CFLAGS) -MT fxsave_amd64-fxsave-amd64.o -MD -MP -MF $(DEPDIR)/fxsave_amd64-fxsave-amd64.Tpo -c -o fxsave_amd64-fxsave-amd64.o `test -f 'fxsave-amd64.c' || echo '$(srcdir)/'`fxsave-amd64.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/fxsave_amd64-fxsave-amd64.Tpo $(DEPDIR)/fxsave_amd64-fxsave-amd64.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='fxsave-amd64.c' object='fxsave_amd64-fxsave-amd64.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(fxsave_amd64_CFLAGS) $(CFLAGS) -c -o fxsave_amd64-fxsave-amd64.o `test -f 'fxsave-amd64.c' || echo '$(srcdir)/'`fxsave-amd64.c
+
+fxsave_amd64-fxsave-amd64.obj: fxsave-amd64.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(fxsave_amd64_CFLAGS) $(CFLAGS) -MT fxsave_amd64-fxsave-amd64.obj -MD -MP -MF $(DEPDIR)/fxsave_amd64-fxsave-amd64.Tpo -c -o fxsave_amd64-fxsave-amd64.obj `if test -f 'fxsave-amd64.c'; then $(CYGPATH_W) 'fxsave-amd64.c'; else $(CYGPATH_W) '$(srcdir)/fxsave-amd64.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/fxsave_amd64-fxsave-amd64.Tpo $(DEPDIR)/fxsave_amd64-fxsave-amd64.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='fxsave-amd64.c' object='fxsave_amd64-fxsave-amd64.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(fxsave_amd64_CFLAGS) $(CFLAGS) -c -o fxsave_amd64-fxsave-amd64.obj `if test -f 'fxsave-amd64.c'; then $(CYGPATH_W) 'fxsave-amd64.c'; else $(CYGPATH_W) '$(srcdir)/fxsave-amd64.c'; fi`
 
 insn_pcmpistri-insn-pcmpistri.o: insn-pcmpistri.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(insn_pcmpistri_CFLAGS) $(CFLAGS) -MT insn_pcmpistri-insn-pcmpistri.o -MD -MP -MF $(DEPDIR)/insn_pcmpistri-insn-pcmpistri.Tpo -c -o insn_pcmpistri-insn-pcmpistri.o `test -f 'insn-pcmpistri.c' || echo '$(srcdir)/'`insn-pcmpistri.c
@@ -825,6 +845,20 @@ more_x87_fp-more_x87_fp.obj: more_x87_fp.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='more_x87_fp.c' object='more_x87_fp-more_x87_fp.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(more_x87_fp_CFLAGS) $(CFLAGS) -c -o more_x87_fp-more_x87_fp.obj `if test -f 'more_x87_fp.c'; then $(CYGPATH_W) 'more_x87_fp.c'; else $(CYGPATH_W) '$(srcdir)/more_x87_fp.c'; fi`
+
+shr_edx-shr_edx.o: shr_edx.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(shr_edx_CFLAGS) $(CFLAGS) -MT shr_edx-shr_edx.o -MD -MP -MF $(DEPDIR)/shr_edx-shr_edx.Tpo -c -o shr_edx-shr_edx.o `test -f 'shr_edx.c' || echo '$(srcdir)/'`shr_edx.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/shr_edx-shr_edx.Tpo $(DEPDIR)/shr_edx-shr_edx.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='shr_edx.c' object='shr_edx-shr_edx.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(shr_edx_CFLAGS) $(CFLAGS) -c -o shr_edx-shr_edx.o `test -f 'shr_edx.c' || echo '$(srcdir)/'`shr_edx.c
+
+shr_edx-shr_edx.obj: shr_edx.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(shr_edx_CFLAGS) $(CFLAGS) -MT shr_edx-shr_edx.obj -MD -MP -MF $(DEPDIR)/shr_edx-shr_edx.Tpo -c -o shr_edx-shr_edx.obj `if test -f 'shr_edx.c'; then $(CYGPATH_W) 'shr_edx.c'; else $(CYGPATH_W) '$(srcdir)/shr_edx.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/shr_edx-shr_edx.Tpo $(DEPDIR)/shr_edx-shr_edx.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='shr_edx.c' object='shr_edx-shr_edx.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(shr_edx_CFLAGS) $(CFLAGS) -c -o shr_edx-shr_edx.obj `if test -f 'shr_edx.c'; then $(CYGPATH_W) 'shr_edx.c'; else $(CYGPATH_W) '$(srcdir)/shr_edx.c'; fi`
 
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique
