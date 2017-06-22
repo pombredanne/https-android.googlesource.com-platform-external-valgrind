@@ -246,20 +246,21 @@ am__libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_SOURCES_DIST =  \
 	m_redir.c m_sbprofile.c m_seqmatch.c m_signals.c m_sparsewa.c \
 	m_stacks.c m_stacktrace.c m_syscall.c m_threadstate.c \
 	m_tooliface.c m_trampoline.S m_translate.c m_transtab.c \
-	m_vki.c m_vkiscnums.c m_wordfm.c m_xarray.c m_aspacehl.c \
-	m_aspacemgr/aspacemgr-common.c m_aspacemgr/aspacemgr-linux.c \
-	m_aspacemgr/aspacemgr-segnames.c m_coredump/coredump-elf.c \
-	m_coredump/coredump-macho.c m_coredump/coredump-solaris.c \
-	m_debuginfo/misc.c m_debuginfo/d3basics.c \
-	m_debuginfo/debuginfo.c m_debuginfo/image.c \
-	m_debuginfo/minilzo-inl.c m_debuginfo/readdwarf.c \
-	m_debuginfo/readdwarf3.c m_debuginfo/readelf.c \
-	m_debuginfo/readexidx.c m_debuginfo/readmacho.c \
-	m_debuginfo/readpdb.c m_debuginfo/storage.c \
-	m_debuginfo/tinfl.c m_debuginfo/tytypes.c \
-	m_demangle/cp-demangle.c m_demangle/cplus-dem.c \
-	m_demangle/demangle.c m_demangle/dyn-string.c \
-	m_demangle/d-demangle.c m_demangle/safe-ctype.c \
+	m_vki.c m_vkiscnums.c m_wordfm.c m_xarray.c m_xtree.c \
+	m_xtmemory.c m_aspacehl.c m_aspacemgr/aspacemgr-common.c \
+	m_aspacemgr/aspacemgr-linux.c m_aspacemgr/aspacemgr-segnames.c \
+	m_coredump/coredump-elf.c m_coredump/coredump-macho.c \
+	m_coredump/coredump-solaris.c m_debuginfo/misc.c \
+	m_debuginfo/d3basics.c m_debuginfo/debuginfo.c \
+	m_debuginfo/image.c m_debuginfo/minilzo-inl.c \
+	m_debuginfo/readdwarf.c m_debuginfo/readdwarf3.c \
+	m_debuginfo/readelf.c m_debuginfo/readexidx.c \
+	m_debuginfo/readmacho.c m_debuginfo/readpdb.c \
+	m_debuginfo/storage.c m_debuginfo/tinfl.c \
+	m_debuginfo/tytypes.c m_demangle/cp-demangle.c \
+	m_demangle/cplus-dem.c m_demangle/demangle.c \
+	m_demangle/dyn-string.c m_demangle/d-demangle.c \
+	m_demangle/rust-demangle.c m_demangle/safe-ctype.c \
 	m_dispatch/dispatch-x86-linux.S \
 	m_dispatch/dispatch-amd64-linux.S \
 	m_dispatch/dispatch-ppc32-linux.S \
@@ -270,7 +271,6 @@ am__libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_SOURCES_DIST =  \
 	m_dispatch/dispatch-s390x-linux.S \
 	m_dispatch/dispatch-mips32-linux.S \
 	m_dispatch/dispatch-mips64-linux.S \
-	m_dispatch/dispatch-tilegx-linux.S \
 	m_dispatch/dispatch-x86-darwin.S \
 	m_dispatch/dispatch-amd64-darwin.S \
 	m_dispatch/dispatch-x86-solaris.S \
@@ -286,8 +286,7 @@ am__libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_SOURCES_DIST =  \
 	m_gdbserver/valgrind-low-ppc64.c \
 	m_gdbserver/valgrind-low-s390x.c \
 	m_gdbserver/valgrind-low-mips32.c \
-	m_gdbserver/valgrind-low-mips64.c \
-	m_gdbserver/valgrind-low-tilegx.c m_gdbserver/version.c \
+	m_gdbserver/valgrind-low-mips64.c m_gdbserver/version.c \
 	m_initimg/initimg-linux.c m_initimg/initimg-darwin.c \
 	m_initimg/initimg-solaris.c m_initimg/initimg-pathscan.c \
 	m_mach/mach_basics.c m_mach/mach_msg.c \
@@ -305,7 +304,6 @@ am__libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_SOURCES_DIST =  \
 	m_sigframe/sigframe-s390x-linux.c \
 	m_sigframe/sigframe-mips32-linux.c \
 	m_sigframe/sigframe-mips64-linux.c \
-	m_sigframe/sigframe-tilegx-linux.c \
 	m_sigframe/sigframe-x86-darwin.c \
 	m_sigframe/sigframe-amd64-darwin.c \
 	m_sigframe/sigframe-solaris.c m_syswrap/syscall-x86-linux.S \
@@ -317,7 +315,6 @@ am__libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_SOURCES_DIST =  \
 	m_syswrap/syscall-s390x-linux.S \
 	m_syswrap/syscall-mips32-linux.S \
 	m_syswrap/syscall-mips64-linux.S \
-	m_syswrap/syscall-tilegx-linux.S \
 	m_syswrap/syscall-x86-darwin.S \
 	m_syswrap/syscall-amd64-darwin.S \
 	m_syswrap/syscall-x86-solaris.S \
@@ -332,7 +329,6 @@ am__libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_SOURCES_DIST =  \
 	m_syswrap/syswrap-s390x-linux.c \
 	m_syswrap/syswrap-mips32-linux.c \
 	m_syswrap/syswrap-mips64-linux.c \
-	m_syswrap/syswrap-tilegx-linux.c \
 	m_syswrap/syswrap-x86-darwin.c \
 	m_syswrap/syswrap-amd64-darwin.c m_syswrap/syswrap-xen.c \
 	m_syswrap/syswrap-x86-solaris.c \
@@ -381,6 +377,8 @@ am__objects_1 = libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_addrinfo.$(OBJEXT
 	libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_vkiscnums.$(OBJEXT) \
 	libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_wordfm.$(OBJEXT) \
 	libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xarray.$(OBJEXT) \
+	libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtree.$(OBJEXT) \
+	libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtmemory.$(OBJEXT) \
 	libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_aspacehl.$(OBJEXT) \
 	m_aspacemgr/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-aspacemgr-common.$(OBJEXT) \
 	m_aspacemgr/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-aspacemgr-linux.$(OBJEXT) \
@@ -407,6 +405,7 @@ am__objects_1 = libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_addrinfo.$(OBJEXT
 	m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-demangle.$(OBJEXT) \
 	m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dyn-string.$(OBJEXT) \
 	m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-d-demangle.$(OBJEXT) \
+	m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-rust-demangle.$(OBJEXT) \
 	m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-safe-ctype.$(OBJEXT) \
 	m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-x86-linux.$(OBJEXT) \
 	m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-amd64-linux.$(OBJEXT) \
@@ -418,7 +417,6 @@ am__objects_1 = libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_addrinfo.$(OBJEXT
 	m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-s390x-linux.$(OBJEXT) \
 	m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-mips32-linux.$(OBJEXT) \
 	m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-mips64-linux.$(OBJEXT) \
-	m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-tilegx-linux.$(OBJEXT) \
 	m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-x86-darwin.$(OBJEXT) \
 	m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-amd64-darwin.$(OBJEXT) \
 	m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-x86-solaris.$(OBJEXT) \
@@ -440,7 +438,6 @@ am__objects_1 = libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_addrinfo.$(OBJEXT
 	m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-s390x.$(OBJEXT) \
 	m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-mips32.$(OBJEXT) \
 	m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-mips64.$(OBJEXT) \
-	m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-tilegx.$(OBJEXT) \
 	m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-version.$(OBJEXT) \
 	m_initimg/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-initimg-linux.$(OBJEXT) \
 	m_initimg/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-initimg-darwin.$(OBJEXT) \
@@ -465,7 +462,6 @@ am__objects_1 = libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_addrinfo.$(OBJEXT
 	m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-s390x-linux.$(OBJEXT) \
 	m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-mips32-linux.$(OBJEXT) \
 	m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-mips64-linux.$(OBJEXT) \
-	m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-tilegx-linux.$(OBJEXT) \
 	m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-x86-darwin.$(OBJEXT) \
 	m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-amd64-darwin.$(OBJEXT) \
 	m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-solaris.$(OBJEXT) \
@@ -479,7 +475,6 @@ am__objects_1 = libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_addrinfo.$(OBJEXT
 	m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-s390x-linux.$(OBJEXT) \
 	m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-mips32-linux.$(OBJEXT) \
 	m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-mips64-linux.$(OBJEXT) \
-	m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-tilegx-linux.$(OBJEXT) \
 	m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-x86-darwin.$(OBJEXT) \
 	m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-amd64-darwin.$(OBJEXT) \
 	m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-x86-solaris.$(OBJEXT) \
@@ -499,7 +494,6 @@ am__objects_1 = libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_addrinfo.$(OBJEXT
 	m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-s390x-linux.$(OBJEXT) \
 	m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-mips32-linux.$(OBJEXT) \
 	m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-mips64-linux.$(OBJEXT) \
-	m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-tilegx-linux.$(OBJEXT) \
 	m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-x86-darwin.$(OBJEXT) \
 	m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-amd64-darwin.$(OBJEXT) \
 	m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-xen.$(OBJEXT) \
@@ -536,20 +530,21 @@ am__libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_SOURCES_DIST =  \
 	m_redir.c m_sbprofile.c m_seqmatch.c m_signals.c m_sparsewa.c \
 	m_stacks.c m_stacktrace.c m_syscall.c m_threadstate.c \
 	m_tooliface.c m_trampoline.S m_translate.c m_transtab.c \
-	m_vki.c m_vkiscnums.c m_wordfm.c m_xarray.c m_aspacehl.c \
-	m_aspacemgr/aspacemgr-common.c m_aspacemgr/aspacemgr-linux.c \
-	m_aspacemgr/aspacemgr-segnames.c m_coredump/coredump-elf.c \
-	m_coredump/coredump-macho.c m_coredump/coredump-solaris.c \
-	m_debuginfo/misc.c m_debuginfo/d3basics.c \
-	m_debuginfo/debuginfo.c m_debuginfo/image.c \
-	m_debuginfo/minilzo-inl.c m_debuginfo/readdwarf.c \
-	m_debuginfo/readdwarf3.c m_debuginfo/readelf.c \
-	m_debuginfo/readexidx.c m_debuginfo/readmacho.c \
-	m_debuginfo/readpdb.c m_debuginfo/storage.c \
-	m_debuginfo/tinfl.c m_debuginfo/tytypes.c \
-	m_demangle/cp-demangle.c m_demangle/cplus-dem.c \
-	m_demangle/demangle.c m_demangle/dyn-string.c \
-	m_demangle/d-demangle.c m_demangle/safe-ctype.c \
+	m_vki.c m_vkiscnums.c m_wordfm.c m_xarray.c m_xtree.c \
+	m_xtmemory.c m_aspacehl.c m_aspacemgr/aspacemgr-common.c \
+	m_aspacemgr/aspacemgr-linux.c m_aspacemgr/aspacemgr-segnames.c \
+	m_coredump/coredump-elf.c m_coredump/coredump-macho.c \
+	m_coredump/coredump-solaris.c m_debuginfo/misc.c \
+	m_debuginfo/d3basics.c m_debuginfo/debuginfo.c \
+	m_debuginfo/image.c m_debuginfo/minilzo-inl.c \
+	m_debuginfo/readdwarf.c m_debuginfo/readdwarf3.c \
+	m_debuginfo/readelf.c m_debuginfo/readexidx.c \
+	m_debuginfo/readmacho.c m_debuginfo/readpdb.c \
+	m_debuginfo/storage.c m_debuginfo/tinfl.c \
+	m_debuginfo/tytypes.c m_demangle/cp-demangle.c \
+	m_demangle/cplus-dem.c m_demangle/demangle.c \
+	m_demangle/dyn-string.c m_demangle/d-demangle.c \
+	m_demangle/rust-demangle.c m_demangle/safe-ctype.c \
 	m_dispatch/dispatch-x86-linux.S \
 	m_dispatch/dispatch-amd64-linux.S \
 	m_dispatch/dispatch-ppc32-linux.S \
@@ -560,7 +555,6 @@ am__libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_SOURCES_DIST =  \
 	m_dispatch/dispatch-s390x-linux.S \
 	m_dispatch/dispatch-mips32-linux.S \
 	m_dispatch/dispatch-mips64-linux.S \
-	m_dispatch/dispatch-tilegx-linux.S \
 	m_dispatch/dispatch-x86-darwin.S \
 	m_dispatch/dispatch-amd64-darwin.S \
 	m_dispatch/dispatch-x86-solaris.S \
@@ -576,8 +570,7 @@ am__libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_SOURCES_DIST =  \
 	m_gdbserver/valgrind-low-ppc64.c \
 	m_gdbserver/valgrind-low-s390x.c \
 	m_gdbserver/valgrind-low-mips32.c \
-	m_gdbserver/valgrind-low-mips64.c \
-	m_gdbserver/valgrind-low-tilegx.c m_gdbserver/version.c \
+	m_gdbserver/valgrind-low-mips64.c m_gdbserver/version.c \
 	m_initimg/initimg-linux.c m_initimg/initimg-darwin.c \
 	m_initimg/initimg-solaris.c m_initimg/initimg-pathscan.c \
 	m_mach/mach_basics.c m_mach/mach_msg.c \
@@ -595,7 +588,6 @@ am__libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_SOURCES_DIST =  \
 	m_sigframe/sigframe-s390x-linux.c \
 	m_sigframe/sigframe-mips32-linux.c \
 	m_sigframe/sigframe-mips64-linux.c \
-	m_sigframe/sigframe-tilegx-linux.c \
 	m_sigframe/sigframe-x86-darwin.c \
 	m_sigframe/sigframe-amd64-darwin.c \
 	m_sigframe/sigframe-solaris.c m_syswrap/syscall-x86-linux.S \
@@ -607,7 +599,6 @@ am__libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_SOURCES_DIST =  \
 	m_syswrap/syscall-s390x-linux.S \
 	m_syswrap/syscall-mips32-linux.S \
 	m_syswrap/syscall-mips64-linux.S \
-	m_syswrap/syscall-tilegx-linux.S \
 	m_syswrap/syscall-x86-darwin.S \
 	m_syswrap/syscall-amd64-darwin.S \
 	m_syswrap/syscall-x86-solaris.S \
@@ -622,7 +613,6 @@ am__libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_SOURCES_DIST =  \
 	m_syswrap/syswrap-s390x-linux.c \
 	m_syswrap/syswrap-mips32-linux.c \
 	m_syswrap/syswrap-mips64-linux.c \
-	m_syswrap/syswrap-tilegx-linux.c \
 	m_syswrap/syswrap-x86-darwin.c \
 	m_syswrap/syswrap-amd64-darwin.c m_syswrap/syswrap-xen.c \
 	m_syswrap/syswrap-x86-solaris.c \
@@ -670,6 +660,8 @@ am__objects_7 = libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_addrinfo.$(OBJEXT
 	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_vkiscnums.$(OBJEXT) \
 	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_wordfm.$(OBJEXT) \
 	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xarray.$(OBJEXT) \
+	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtree.$(OBJEXT) \
+	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtmemory.$(OBJEXT) \
 	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_aspacehl.$(OBJEXT) \
 	m_aspacemgr/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-aspacemgr-common.$(OBJEXT) \
 	m_aspacemgr/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-aspacemgr-linux.$(OBJEXT) \
@@ -696,6 +688,7 @@ am__objects_7 = libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_addrinfo.$(OBJEXT
 	m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-demangle.$(OBJEXT) \
 	m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dyn-string.$(OBJEXT) \
 	m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-d-demangle.$(OBJEXT) \
+	m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-rust-demangle.$(OBJEXT) \
 	m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-safe-ctype.$(OBJEXT) \
 	m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-x86-linux.$(OBJEXT) \
 	m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-amd64-linux.$(OBJEXT) \
@@ -707,7 +700,6 @@ am__objects_7 = libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_addrinfo.$(OBJEXT
 	m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-s390x-linux.$(OBJEXT) \
 	m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-mips32-linux.$(OBJEXT) \
 	m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-mips64-linux.$(OBJEXT) \
-	m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-tilegx-linux.$(OBJEXT) \
 	m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-x86-darwin.$(OBJEXT) \
 	m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-amd64-darwin.$(OBJEXT) \
 	m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-x86-solaris.$(OBJEXT) \
@@ -729,7 +721,6 @@ am__objects_7 = libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_addrinfo.$(OBJEXT
 	m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-s390x.$(OBJEXT) \
 	m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-mips32.$(OBJEXT) \
 	m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-mips64.$(OBJEXT) \
-	m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-tilegx.$(OBJEXT) \
 	m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-version.$(OBJEXT) \
 	m_initimg/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-initimg-linux.$(OBJEXT) \
 	m_initimg/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-initimg-darwin.$(OBJEXT) \
@@ -754,7 +745,6 @@ am__objects_7 = libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_addrinfo.$(OBJEXT
 	m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-s390x-linux.$(OBJEXT) \
 	m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-mips32-linux.$(OBJEXT) \
 	m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-mips64-linux.$(OBJEXT) \
-	m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-tilegx-linux.$(OBJEXT) \
 	m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-x86-darwin.$(OBJEXT) \
 	m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-amd64-darwin.$(OBJEXT) \
 	m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-solaris.$(OBJEXT) \
@@ -768,7 +758,6 @@ am__objects_7 = libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_addrinfo.$(OBJEXT
 	m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-s390x-linux.$(OBJEXT) \
 	m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-mips32-linux.$(OBJEXT) \
 	m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-mips64-linux.$(OBJEXT) \
-	m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-tilegx-linux.$(OBJEXT) \
 	m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-x86-darwin.$(OBJEXT) \
 	m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-amd64-darwin.$(OBJEXT) \
 	m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-x86-solaris.$(OBJEXT) \
@@ -788,7 +777,6 @@ am__objects_7 = libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_addrinfo.$(OBJEXT
 	m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-s390x-linux.$(OBJEXT) \
 	m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-mips32-linux.$(OBJEXT) \
 	m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-mips64-linux.$(OBJEXT) \
-	m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-tilegx-linux.$(OBJEXT) \
 	m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-x86-darwin.$(OBJEXT) \
 	m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-amd64-darwin.$(OBJEXT) \
 	m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-xen.$(OBJEXT) \
@@ -1003,6 +991,7 @@ FLAG_MLONG_DOUBLE_128 = @FLAG_MLONG_DOUBLE_128@
 FLAG_MMMX = @FLAG_MMMX@
 FLAG_MSSE = @FLAG_MSSE@
 FLAG_NO_BUILD_ID = @FLAG_NO_BUILD_ID@
+FLAG_NO_PIE = @FLAG_NO_PIE@
 FLAG_OCTEON = @FLAG_OCTEON@
 FLAG_OCTEON2 = @FLAG_OCTEON2@
 FLAG_T_TEXT = @FLAG_T_TEXT@
@@ -1175,15 +1164,17 @@ AM_CFLAGS_BASE = -O2 -g -std=gnu99 -Wall -Wmissing-prototypes -Wshadow \
 # Basics, flags
 #----------------------------------------------------------------------------
 AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@ = -I$(top_srcdir) \
-	-I$(top_srcdir)/include -I$(top_srcdir)/VEX/pub \
-	-I$(top_builddir)/VEX/pub -DVGA_@VGCONF_ARCH_PRI@=1 \
-	-DVGO_@VGCONF_OS@=1 -DVGP_@VGCONF_ARCH_PRI@_@VGCONF_OS@=1 \
+	-I$(top_srcdir)/include -I$(top_builddir)/include \
+	-I$(top_srcdir)/VEX/pub -I$(top_builddir)/VEX/pub \
+	-DVGA_@VGCONF_ARCH_PRI@=1 -DVGO_@VGCONF_OS@=1 \
+	-DVGP_@VGCONF_ARCH_PRI@_@VGCONF_OS@=1 \
 	-DVGPV_@VGCONF_ARCH_PRI@_@VGCONF_OS@_@VGCONF_PLATVARIANT@=1 \
 	-I$(top_srcdir)/coregrind -DVG_LIBDIR="\"$(pkglibdir)"\" \
 	-DVG_PLATFORM="\"@VGCONF_ARCH_PRI@-@VGCONF_OS@\""
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@AM_CPPFLAGS_@VGCONF_PLATFORM_SEC_CAPS@ =  \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir) \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir)/include \
+@VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_builddir)/include \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_srcdir)/VEX/pub \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-I$(top_builddir)/VEX/pub \
 @VGCONF_HAVE_PLATFORM_SEC_TRUE@	-DVGA_@VGCONF_ARCH_SEC@=1 \
@@ -1260,8 +1251,6 @@ AM_CFLAGS_PSO_MIPS64_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE) @FLAG_MIPS64@ \
 				$(AM_CFLAGS_PSO_BASE)
 
 AM_CCASFLAGS_MIPS64_LINUX = @FLAG_M64@ -g @FLAG_MIPS64@
-AM_CFLAGS_TILEGX_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE)
-AM_CFLAGS_PSO_TILEGX_LINUX = @FLAG_M64@ $(AM_CFLAGS_BASE) $(AM_CFLAGS_PSO_BASE)
 AM_FLAG_M3264_X86_SOLARIS = @FLAG_M32@
 AM_CFLAGS_X86_SOLARIS = @FLAG_M32@ @PREFERRED_STACK_BOUNDARY_2@ \
 				$(AM_CFLAGS_BASE) -fomit-frame-pointer \
@@ -1306,7 +1295,6 @@ PRELOAD_LDFLAGS_AMD64_DARWIN = $(PRELOAD_LDFLAGS_COMMON_DARWIN) -arch x86_64
 PRELOAD_LDFLAGS_S390X_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
 PRELOAD_LDFLAGS_MIPS32_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M32@
 PRELOAD_LDFLAGS_MIPS64_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
-PRELOAD_LDFLAGS_TILEGX_LINUX = $(PRELOAD_LDFLAGS_COMMON_LINUX) @FLAG_M64@
 PRELOAD_LDFLAGS_X86_SOLARIS = $(PRELOAD_LDFLAGS_COMMON_SOLARIS) @FLAG_M32@
 PRELOAD_LDFLAGS_AMD64_SOLARIS = $(PRELOAD_LDFLAGS_COMMON_SOLARIS) @FLAG_M64@
 
@@ -1431,6 +1419,8 @@ noinst_HEADERS = \
 	pub_core_vkiscnums_asm.h\
 	pub_core_wordfm.h	\
 	pub_core_xarray.h	\
+	pub_core_xtree.h	\
+	pub_core_xtmemory.h	\
 	m_aspacemgr/priv_aspacemgr.h \
 	m_debuginfo/priv_misc.h	\
 	m_debuginfo/priv_storage.h	\
@@ -1532,6 +1522,8 @@ COREGRIND_SOURCES_COMMON = \
 	m_vkiscnums.c \
 	m_wordfm.c \
 	m_xarray.c \
+	m_xtree.c \
+	m_xtmemory.c \
 	m_aspacehl.c \
 	m_aspacemgr/aspacemgr-common.c \
 	m_aspacemgr/aspacemgr-linux.c \
@@ -1558,6 +1550,7 @@ COREGRIND_SOURCES_COMMON = \
 	m_demangle/demangle.c \
 	m_demangle/dyn-string.c \
 	m_demangle/d-demangle.c \
+	m_demangle/rust-demangle.c \
 	m_demangle/safe-ctype.c \
 	m_dispatch/dispatch-x86-linux.S \
 	m_dispatch/dispatch-amd64-linux.S \
@@ -1569,7 +1562,6 @@ COREGRIND_SOURCES_COMMON = \
 	m_dispatch/dispatch-s390x-linux.S \
 	m_dispatch/dispatch-mips32-linux.S \
 	m_dispatch/dispatch-mips64-linux.S \
-	m_dispatch/dispatch-tilegx-linux.S \
 	m_dispatch/dispatch-x86-darwin.S \
 	m_dispatch/dispatch-amd64-darwin.S \
 	m_dispatch/dispatch-x86-solaris.S \
@@ -1591,7 +1583,6 @@ COREGRIND_SOURCES_COMMON = \
 	m_gdbserver/valgrind-low-s390x.c \
 	m_gdbserver/valgrind-low-mips32.c \
 	m_gdbserver/valgrind-low-mips64.c \
-	m_gdbserver/valgrind-low-tilegx.c \
 	m_gdbserver/version.c \
 	m_initimg/initimg-linux.c \
 	m_initimg/initimg-darwin.c \
@@ -1616,7 +1607,6 @@ COREGRIND_SOURCES_COMMON = \
 	m_sigframe/sigframe-s390x-linux.c \
 	m_sigframe/sigframe-mips32-linux.c \
 	m_sigframe/sigframe-mips64-linux.c \
-	m_sigframe/sigframe-tilegx-linux.c \
 	m_sigframe/sigframe-x86-darwin.c \
 	m_sigframe/sigframe-amd64-darwin.c \
 	m_sigframe/sigframe-solaris.c \
@@ -1630,7 +1620,6 @@ COREGRIND_SOURCES_COMMON = \
 	m_syswrap/syscall-s390x-linux.S \
 	m_syswrap/syscall-mips32-linux.S \
 	m_syswrap/syscall-mips64-linux.S \
-	m_syswrap/syscall-tilegx-linux.S \
 	m_syswrap/syscall-x86-darwin.S \
 	m_syswrap/syscall-amd64-darwin.S \
 	m_syswrap/syscall-x86-solaris.S \
@@ -1650,7 +1639,6 @@ COREGRIND_SOURCES_COMMON = \
 	m_syswrap/syswrap-s390x-linux.c \
 	m_syswrap/syswrap-mips32-linux.c \
 	m_syswrap/syswrap-mips64-linux.c \
-	m_syswrap/syswrap-tilegx-linux.c \
 	m_syswrap/syswrap-x86-darwin.c \
 	m_syswrap/syswrap-amd64-darwin.c \
 	m_syswrap/syswrap-xen.c \
@@ -2006,6 +1994,9 @@ m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dyn-string.$(OBJEXT):  \
 m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-d-demangle.$(OBJEXT):  \
 	m_demangle/$(am__dirstamp) \
 	m_demangle/$(DEPDIR)/$(am__dirstamp)
+m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-rust-demangle.$(OBJEXT):  \
+	m_demangle/$(am__dirstamp) \
+	m_demangle/$(DEPDIR)/$(am__dirstamp)
 m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-safe-ctype.$(OBJEXT):  \
 	m_demangle/$(am__dirstamp) \
 	m_demangle/$(DEPDIR)/$(am__dirstamp)
@@ -2043,9 +2034,6 @@ m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-mips32-linux.$(
 	m_dispatch/$(am__dirstamp) \
 	m_dispatch/$(DEPDIR)/$(am__dirstamp)
 m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-mips64-linux.$(OBJEXT):  \
-	m_dispatch/$(am__dirstamp) \
-	m_dispatch/$(DEPDIR)/$(am__dirstamp)
-m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-tilegx-linux.$(OBJEXT):  \
 	m_dispatch/$(am__dirstamp) \
 	m_dispatch/$(DEPDIR)/$(am__dirstamp)
 m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-x86-darwin.$(OBJEXT):  \
@@ -2115,9 +2103,6 @@ m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-mips32.$(O
 	m_gdbserver/$(am__dirstamp) \
 	m_gdbserver/$(DEPDIR)/$(am__dirstamp)
 m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-mips64.$(OBJEXT):  \
-	m_gdbserver/$(am__dirstamp) \
-	m_gdbserver/$(DEPDIR)/$(am__dirstamp)
-m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-tilegx.$(OBJEXT):  \
 	m_gdbserver/$(am__dirstamp) \
 	m_gdbserver/$(DEPDIR)/$(am__dirstamp)
 m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-version.$(OBJEXT):  \
@@ -2214,9 +2199,6 @@ m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-mips32-linux.$(
 m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-mips64-linux.$(OBJEXT):  \
 	m_sigframe/$(am__dirstamp) \
 	m_sigframe/$(DEPDIR)/$(am__dirstamp)
-m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-tilegx-linux.$(OBJEXT):  \
-	m_sigframe/$(am__dirstamp) \
-	m_sigframe/$(DEPDIR)/$(am__dirstamp)
 m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-x86-darwin.$(OBJEXT):  \
 	m_sigframe/$(am__dirstamp) \
 	m_sigframe/$(DEPDIR)/$(am__dirstamp)
@@ -2251,8 +2233,6 @@ m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-s390x-linux.$(OBJ
 m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-mips32-linux.$(OBJEXT):  \
 	m_syswrap/$(am__dirstamp) m_syswrap/$(DEPDIR)/$(am__dirstamp)
 m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-mips64-linux.$(OBJEXT):  \
-	m_syswrap/$(am__dirstamp) m_syswrap/$(DEPDIR)/$(am__dirstamp)
-m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-tilegx-linux.$(OBJEXT):  \
 	m_syswrap/$(am__dirstamp) m_syswrap/$(DEPDIR)/$(am__dirstamp)
 m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-x86-darwin.$(OBJEXT):  \
 	m_syswrap/$(am__dirstamp) m_syswrap/$(DEPDIR)/$(am__dirstamp)
@@ -2291,8 +2271,6 @@ m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-s390x-linux.$(OBJ
 m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-mips32-linux.$(OBJEXT):  \
 	m_syswrap/$(am__dirstamp) m_syswrap/$(DEPDIR)/$(am__dirstamp)
 m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-mips64-linux.$(OBJEXT):  \
-	m_syswrap/$(am__dirstamp) m_syswrap/$(DEPDIR)/$(am__dirstamp)
-m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-tilegx-linux.$(OBJEXT):  \
 	m_syswrap/$(am__dirstamp) m_syswrap/$(DEPDIR)/$(am__dirstamp)
 m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-x86-darwin.$(OBJEXT):  \
 	m_syswrap/$(am__dirstamp) m_syswrap/$(DEPDIR)/$(am__dirstamp)
@@ -2409,6 +2387,9 @@ m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dyn-string.$(OBJEXT):  \
 m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-d-demangle.$(OBJEXT):  \
 	m_demangle/$(am__dirstamp) \
 	m_demangle/$(DEPDIR)/$(am__dirstamp)
+m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-rust-demangle.$(OBJEXT):  \
+	m_demangle/$(am__dirstamp) \
+	m_demangle/$(DEPDIR)/$(am__dirstamp)
 m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-safe-ctype.$(OBJEXT):  \
 	m_demangle/$(am__dirstamp) \
 	m_demangle/$(DEPDIR)/$(am__dirstamp)
@@ -2440,9 +2421,6 @@ m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-mips32-linux.$(
 	m_dispatch/$(am__dirstamp) \
 	m_dispatch/$(DEPDIR)/$(am__dirstamp)
 m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-mips64-linux.$(OBJEXT):  \
-	m_dispatch/$(am__dirstamp) \
-	m_dispatch/$(DEPDIR)/$(am__dirstamp)
-m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-tilegx-linux.$(OBJEXT):  \
 	m_dispatch/$(am__dirstamp) \
 	m_dispatch/$(DEPDIR)/$(am__dirstamp)
 m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-x86-darwin.$(OBJEXT):  \
@@ -2506,9 +2484,6 @@ m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-mips32.$(O
 	m_gdbserver/$(am__dirstamp) \
 	m_gdbserver/$(DEPDIR)/$(am__dirstamp)
 m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-mips64.$(OBJEXT):  \
-	m_gdbserver/$(am__dirstamp) \
-	m_gdbserver/$(DEPDIR)/$(am__dirstamp)
-m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-tilegx.$(OBJEXT):  \
 	m_gdbserver/$(am__dirstamp) \
 	m_gdbserver/$(DEPDIR)/$(am__dirstamp)
 m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-version.$(OBJEXT):  \
@@ -2575,9 +2550,6 @@ m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-mips32-linux.$(
 m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-mips64-linux.$(OBJEXT):  \
 	m_sigframe/$(am__dirstamp) \
 	m_sigframe/$(DEPDIR)/$(am__dirstamp)
-m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-tilegx-linux.$(OBJEXT):  \
-	m_sigframe/$(am__dirstamp) \
-	m_sigframe/$(DEPDIR)/$(am__dirstamp)
 m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-x86-darwin.$(OBJEXT):  \
 	m_sigframe/$(am__dirstamp) \
 	m_sigframe/$(DEPDIR)/$(am__dirstamp)
@@ -2606,8 +2578,6 @@ m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-s390x-linux.$(OBJ
 m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-mips32-linux.$(OBJEXT):  \
 	m_syswrap/$(am__dirstamp) m_syswrap/$(DEPDIR)/$(am__dirstamp)
 m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-mips64-linux.$(OBJEXT):  \
-	m_syswrap/$(am__dirstamp) m_syswrap/$(DEPDIR)/$(am__dirstamp)
-m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-tilegx-linux.$(OBJEXT):  \
 	m_syswrap/$(am__dirstamp) m_syswrap/$(DEPDIR)/$(am__dirstamp)
 m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-x86-darwin.$(OBJEXT):  \
 	m_syswrap/$(am__dirstamp) m_syswrap/$(DEPDIR)/$(am__dirstamp)
@@ -2646,8 +2616,6 @@ m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-s390x-linux.$(OBJ
 m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-mips32-linux.$(OBJEXT):  \
 	m_syswrap/$(am__dirstamp) m_syswrap/$(DEPDIR)/$(am__dirstamp)
 m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-mips64-linux.$(OBJEXT):  \
-	m_syswrap/$(am__dirstamp) m_syswrap/$(DEPDIR)/$(am__dirstamp)
-m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-tilegx-linux.$(OBJEXT):  \
 	m_syswrap/$(am__dirstamp) m_syswrap/$(DEPDIR)/$(am__dirstamp)
 m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-x86-darwin.$(OBJEXT):  \
 	m_syswrap/$(am__dirstamp) m_syswrap/$(DEPDIR)/$(am__dirstamp)
@@ -2823,6 +2791,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_vkiscnums.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_wordfm.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xarray.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtmemory.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtree.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_addrinfo.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_aspacehl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_cache.Po@am__quote@
@@ -2866,6 +2836,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_vkiscnums.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_wordfm.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xarray.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtmemory.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtree.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/valgrind-launcher-darwin.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/valgrind-launcher-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/valgrind-m_debuglog.Po@am__quote@
@@ -2920,12 +2892,14 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-d-demangle.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-demangle.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dyn-string.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-rust-demangle.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-safe-ctype.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-cp-demangle.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-cplus-dem.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-d-demangle.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-demangle.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dyn-string.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-rust-demangle.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-safe-ctype.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-amd64-darwin.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-amd64-linux.Po@am__quote@
@@ -2938,7 +2912,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-ppc64be-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-ppc64le-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-s390x-linux.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-tilegx-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-x86-darwin.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-x86-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-x86-solaris.Po@am__quote@
@@ -2953,7 +2926,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-ppc64be-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-ppc64le-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-s390x-linux.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-tilegx-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-x86-darwin.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-x86-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-x86-solaris.Po@am__quote@
@@ -2973,7 +2945,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-ppc32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-ppc64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-s390x.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-tilegx.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-x86.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-version.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-inferiors.Po@am__quote@
@@ -2992,7 +2963,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-ppc32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-ppc64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-s390x.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-tilegx.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-x86.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-version.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_initimg/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-initimg-darwin.Po@am__quote@
@@ -3044,7 +3014,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-ppc64-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-s390x-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-solaris.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-tilegx-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-x86-darwin.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-x86-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-amd64-darwin.Po@am__quote@
@@ -3058,7 +3027,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-ppc64-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-s390x-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-solaris.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-tilegx-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-x86-darwin.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-x86-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-amd64-darwin.Po@am__quote@
@@ -3072,7 +3040,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-ppc64be-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-ppc64le-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-s390x-linux.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-tilegx-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-x86-darwin.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-x86-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-x86-solaris.Po@am__quote@
@@ -3092,7 +3059,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-ppc64-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-s390x-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-solaris.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-tilegx-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-x86-darwin.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-x86-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-x86-solaris.Po@am__quote@
@@ -3108,7 +3074,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-ppc64be-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-ppc64le-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-s390x-linux.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-tilegx-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-x86-darwin.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-x86-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-x86-solaris.Po@am__quote@
@@ -3128,7 +3093,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-ppc64-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-s390x-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-solaris.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-tilegx-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-x86-darwin.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-x86-linux.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-x86-solaris.Po@am__quote@
@@ -3325,20 +3289,6 @@ m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-mips64-linux.ob
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='m_dispatch/dispatch-mips64-linux.S' object='m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-mips64-linux.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -c -o m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-mips64-linux.obj `if test -f 'm_dispatch/dispatch-mips64-linux.S'; then $(CYGPATH_W) 'm_dispatch/dispatch-mips64-linux.S'; else $(CYGPATH_W) '$(srcdir)/m_dispatch/dispatch-mips64-linux.S'; fi`
-
-m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-tilegx-linux.o: m_dispatch/dispatch-tilegx-linux.S
-@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -MT m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-tilegx-linux.o -MD -MP -MF m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-tilegx-linux.Tpo -c -o m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-tilegx-linux.o `test -f 'm_dispatch/dispatch-tilegx-linux.S' || echo '$(srcdir)/'`m_dispatch/dispatch-tilegx-linux.S
-@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-tilegx-linux.Tpo m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-tilegx-linux.Po
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='m_dispatch/dispatch-tilegx-linux.S' object='m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-tilegx-linux.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -c -o m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-tilegx-linux.o `test -f 'm_dispatch/dispatch-tilegx-linux.S' || echo '$(srcdir)/'`m_dispatch/dispatch-tilegx-linux.S
-
-m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-tilegx-linux.obj: m_dispatch/dispatch-tilegx-linux.S
-@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -MT m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-tilegx-linux.obj -MD -MP -MF m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-tilegx-linux.Tpo -c -o m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-tilegx-linux.obj `if test -f 'm_dispatch/dispatch-tilegx-linux.S'; then $(CYGPATH_W) 'm_dispatch/dispatch-tilegx-linux.S'; else $(CYGPATH_W) '$(srcdir)/m_dispatch/dispatch-tilegx-linux.S'; fi`
-@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-tilegx-linux.Tpo m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-tilegx-linux.Po
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='m_dispatch/dispatch-tilegx-linux.S' object='m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-tilegx-linux.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -c -o m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-tilegx-linux.obj `if test -f 'm_dispatch/dispatch-tilegx-linux.S'; then $(CYGPATH_W) 'm_dispatch/dispatch-tilegx-linux.S'; else $(CYGPATH_W) '$(srcdir)/m_dispatch/dispatch-tilegx-linux.S'; fi`
 
 m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-x86-darwin.o: m_dispatch/dispatch-x86-darwin.S
 @am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -MT m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-x86-darwin.o -MD -MP -MF m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-x86-darwin.Tpo -c -o m_dispatch/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-dispatch-x86-darwin.o `test -f 'm_dispatch/dispatch-x86-darwin.S' || echo '$(srcdir)/'`m_dispatch/dispatch-x86-darwin.S
@@ -3564,20 +3514,6 @@ m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-mips64-linux.obj:
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-mips64-linux.obj `if test -f 'm_syswrap/syscall-mips64-linux.S'; then $(CYGPATH_W) 'm_syswrap/syscall-mips64-linux.S'; else $(CYGPATH_W) '$(srcdir)/m_syswrap/syscall-mips64-linux.S'; fi`
 
-m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-tilegx-linux.o: m_syswrap/syscall-tilegx-linux.S
-@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -MT m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-tilegx-linux.o -MD -MP -MF m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-tilegx-linux.Tpo -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-tilegx-linux.o `test -f 'm_syswrap/syscall-tilegx-linux.S' || echo '$(srcdir)/'`m_syswrap/syscall-tilegx-linux.S
-@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-tilegx-linux.Tpo m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-tilegx-linux.Po
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='m_syswrap/syscall-tilegx-linux.S' object='m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-tilegx-linux.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-tilegx-linux.o `test -f 'm_syswrap/syscall-tilegx-linux.S' || echo '$(srcdir)/'`m_syswrap/syscall-tilegx-linux.S
-
-m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-tilegx-linux.obj: m_syswrap/syscall-tilegx-linux.S
-@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -MT m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-tilegx-linux.obj -MD -MP -MF m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-tilegx-linux.Tpo -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-tilegx-linux.obj `if test -f 'm_syswrap/syscall-tilegx-linux.S'; then $(CYGPATH_W) 'm_syswrap/syscall-tilegx-linux.S'; else $(CYGPATH_W) '$(srcdir)/m_syswrap/syscall-tilegx-linux.S'; fi`
-@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-tilegx-linux.Tpo m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-tilegx-linux.Po
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='m_syswrap/syscall-tilegx-linux.S' object='m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-tilegx-linux.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-tilegx-linux.obj `if test -f 'm_syswrap/syscall-tilegx-linux.S'; then $(CYGPATH_W) 'm_syswrap/syscall-tilegx-linux.S'; else $(CYGPATH_W) '$(srcdir)/m_syswrap/syscall-tilegx-linux.S'; fi`
-
 m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-x86-darwin.o: m_syswrap/syscall-x86-darwin.S
 @am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -MT m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-x86-darwin.o -MD -MP -MF m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-x86-darwin.Tpo -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-x86-darwin.o `test -f 'm_syswrap/syscall-x86-darwin.S' || echo '$(srcdir)/'`m_syswrap/syscall-x86-darwin.S
 @am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-x86-darwin.Tpo m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syscall-x86-darwin.Po
@@ -3802,20 +3738,6 @@ m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-mips64-linux.ob
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -c -o m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-mips64-linux.obj `if test -f 'm_dispatch/dispatch-mips64-linux.S'; then $(CYGPATH_W) 'm_dispatch/dispatch-mips64-linux.S'; else $(CYGPATH_W) '$(srcdir)/m_dispatch/dispatch-mips64-linux.S'; fi`
 
-m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-tilegx-linux.o: m_dispatch/dispatch-tilegx-linux.S
-@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -MT m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-tilegx-linux.o -MD -MP -MF m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-tilegx-linux.Tpo -c -o m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-tilegx-linux.o `test -f 'm_dispatch/dispatch-tilegx-linux.S' || echo '$(srcdir)/'`m_dispatch/dispatch-tilegx-linux.S
-@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-tilegx-linux.Tpo m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-tilegx-linux.Po
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='m_dispatch/dispatch-tilegx-linux.S' object='m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-tilegx-linux.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -c -o m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-tilegx-linux.o `test -f 'm_dispatch/dispatch-tilegx-linux.S' || echo '$(srcdir)/'`m_dispatch/dispatch-tilegx-linux.S
-
-m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-tilegx-linux.obj: m_dispatch/dispatch-tilegx-linux.S
-@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -MT m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-tilegx-linux.obj -MD -MP -MF m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-tilegx-linux.Tpo -c -o m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-tilegx-linux.obj `if test -f 'm_dispatch/dispatch-tilegx-linux.S'; then $(CYGPATH_W) 'm_dispatch/dispatch-tilegx-linux.S'; else $(CYGPATH_W) '$(srcdir)/m_dispatch/dispatch-tilegx-linux.S'; fi`
-@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-tilegx-linux.Tpo m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-tilegx-linux.Po
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='m_dispatch/dispatch-tilegx-linux.S' object='m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-tilegx-linux.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -c -o m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-tilegx-linux.obj `if test -f 'm_dispatch/dispatch-tilegx-linux.S'; then $(CYGPATH_W) 'm_dispatch/dispatch-tilegx-linux.S'; else $(CYGPATH_W) '$(srcdir)/m_dispatch/dispatch-tilegx-linux.S'; fi`
-
 m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-x86-darwin.o: m_dispatch/dispatch-x86-darwin.S
 @am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -MT m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-x86-darwin.o -MD -MP -MF m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-x86-darwin.Tpo -c -o m_dispatch/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-x86-darwin.o `test -f 'm_dispatch/dispatch-x86-darwin.S' || echo '$(srcdir)/'`m_dispatch/dispatch-x86-darwin.S
 @am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-x86-darwin.Tpo m_dispatch/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-dispatch-x86-darwin.Po
@@ -4039,20 +3961,6 @@ m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-mips64-linux.obj:
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='m_syswrap/syscall-mips64-linux.S' object='m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-mips64-linux.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-mips64-linux.obj `if test -f 'm_syswrap/syscall-mips64-linux.S'; then $(CYGPATH_W) 'm_syswrap/syscall-mips64-linux.S'; else $(CYGPATH_W) '$(srcdir)/m_syswrap/syscall-mips64-linux.S'; fi`
-
-m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-tilegx-linux.o: m_syswrap/syscall-tilegx-linux.S
-@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -MT m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-tilegx-linux.o -MD -MP -MF m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-tilegx-linux.Tpo -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-tilegx-linux.o `test -f 'm_syswrap/syscall-tilegx-linux.S' || echo '$(srcdir)/'`m_syswrap/syscall-tilegx-linux.S
-@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-tilegx-linux.Tpo m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-tilegx-linux.Po
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='m_syswrap/syscall-tilegx-linux.S' object='m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-tilegx-linux.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-tilegx-linux.o `test -f 'm_syswrap/syscall-tilegx-linux.S' || echo '$(srcdir)/'`m_syswrap/syscall-tilegx-linux.S
-
-m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-tilegx-linux.obj: m_syswrap/syscall-tilegx-linux.S
-@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -MT m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-tilegx-linux.obj -MD -MP -MF m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-tilegx-linux.Tpo -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-tilegx-linux.obj `if test -f 'm_syswrap/syscall-tilegx-linux.S'; then $(CYGPATH_W) 'm_syswrap/syscall-tilegx-linux.S'; else $(CYGPATH_W) '$(srcdir)/m_syswrap/syscall-tilegx-linux.S'; fi`
-@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-tilegx-linux.Tpo m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-tilegx-linux.Po
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='m_syswrap/syscall-tilegx-linux.S' object='m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-tilegx-linux.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-tilegx-linux.obj `if test -f 'm_syswrap/syscall-tilegx-linux.S'; then $(CYGPATH_W) 'm_syswrap/syscall-tilegx-linux.S'; else $(CYGPATH_W) '$(srcdir)/m_syswrap/syscall-tilegx-linux.S'; fi`
 
 m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-x86-darwin.o: m_syswrap/syscall-x86-darwin.S
 @am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CCASFLAGS) $(CCASFLAGS) -MT m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-x86-darwin.o -MD -MP -MF m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-x86-darwin.Tpo -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syscall-x86-darwin.o `test -f 'm_syswrap/syscall-x86-darwin.S' || echo '$(srcdir)/'`m_syswrap/syscall-x86-darwin.S
@@ -4686,6 +4594,34 @@ libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xarray.obj: m_xarray.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xarray.obj `if test -f 'm_xarray.c'; then $(CYGPATH_W) 'm_xarray.c'; else $(CYGPATH_W) '$(srcdir)/m_xarray.c'; fi`
 
+libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtree.o: m_xtree.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtree.o -MD -MP -MF $(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtree.Tpo -c -o libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtree.o `test -f 'm_xtree.c' || echo '$(srcdir)/'`m_xtree.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtree.Tpo $(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtree.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_xtree.c' object='libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtree.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtree.o `test -f 'm_xtree.c' || echo '$(srcdir)/'`m_xtree.c
+
+libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtree.obj: m_xtree.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtree.obj -MD -MP -MF $(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtree.Tpo -c -o libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtree.obj `if test -f 'm_xtree.c'; then $(CYGPATH_W) 'm_xtree.c'; else $(CYGPATH_W) '$(srcdir)/m_xtree.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtree.Tpo $(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtree.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_xtree.c' object='libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtree.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtree.obj `if test -f 'm_xtree.c'; then $(CYGPATH_W) 'm_xtree.c'; else $(CYGPATH_W) '$(srcdir)/m_xtree.c'; fi`
+
+libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtmemory.o: m_xtmemory.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtmemory.o -MD -MP -MF $(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtmemory.Tpo -c -o libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtmemory.o `test -f 'm_xtmemory.c' || echo '$(srcdir)/'`m_xtmemory.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtmemory.Tpo $(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtmemory.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_xtmemory.c' object='libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtmemory.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtmemory.o `test -f 'm_xtmemory.c' || echo '$(srcdir)/'`m_xtmemory.c
+
+libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtmemory.obj: m_xtmemory.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtmemory.obj -MD -MP -MF $(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtmemory.Tpo -c -o libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtmemory.obj `if test -f 'm_xtmemory.c'; then $(CYGPATH_W) 'm_xtmemory.c'; else $(CYGPATH_W) '$(srcdir)/m_xtmemory.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtmemory.Tpo $(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtmemory.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_xtmemory.c' object='libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtmemory.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_xtmemory.obj `if test -f 'm_xtmemory.c'; then $(CYGPATH_W) 'm_xtmemory.c'; else $(CYGPATH_W) '$(srcdir)/m_xtmemory.c'; fi`
+
 libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_aspacehl.o: m_aspacehl.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_aspacehl.o -MD -MP -MF $(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_aspacehl.Tpo -c -o libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_aspacehl.o `test -f 'm_aspacehl.c' || echo '$(srcdir)/'`m_aspacehl.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_aspacehl.Tpo $(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-m_aspacehl.Po
@@ -5050,6 +4986,20 @@ m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-d-demangle.obj: m_demang
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-d-demangle.obj `if test -f 'm_demangle/d-demangle.c'; then $(CYGPATH_W) 'm_demangle/d-demangle.c'; else $(CYGPATH_W) '$(srcdir)/m_demangle/d-demangle.c'; fi`
 
+m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-rust-demangle.o: m_demangle/rust-demangle.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-rust-demangle.o -MD -MP -MF m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-rust-demangle.Tpo -c -o m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-rust-demangle.o `test -f 'm_demangle/rust-demangle.c' || echo '$(srcdir)/'`m_demangle/rust-demangle.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-rust-demangle.Tpo m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-rust-demangle.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_demangle/rust-demangle.c' object='m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-rust-demangle.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-rust-demangle.o `test -f 'm_demangle/rust-demangle.c' || echo '$(srcdir)/'`m_demangle/rust-demangle.c
+
+m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-rust-demangle.obj: m_demangle/rust-demangle.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-rust-demangle.obj -MD -MP -MF m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-rust-demangle.Tpo -c -o m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-rust-demangle.obj `if test -f 'm_demangle/rust-demangle.c'; then $(CYGPATH_W) 'm_demangle/rust-demangle.c'; else $(CYGPATH_W) '$(srcdir)/m_demangle/rust-demangle.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-rust-demangle.Tpo m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-rust-demangle.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_demangle/rust-demangle.c' object='m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-rust-demangle.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-rust-demangle.obj `if test -f 'm_demangle/rust-demangle.c'; then $(CYGPATH_W) 'm_demangle/rust-demangle.c'; else $(CYGPATH_W) '$(srcdir)/m_demangle/rust-demangle.c'; fi`
+
 m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-safe-ctype.o: m_demangle/safe-ctype.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-safe-ctype.o -MD -MP -MF m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-safe-ctype.Tpo -c -o m_demangle/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-safe-ctype.o `test -f 'm_demangle/safe-ctype.c' || echo '$(srcdir)/'`m_demangle/safe-ctype.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-safe-ctype.Tpo m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-safe-ctype.Po
@@ -5301,20 +5251,6 @@ m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-mips64.obj
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_gdbserver/valgrind-low-mips64.c' object='m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-mips64.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-mips64.obj `if test -f 'm_gdbserver/valgrind-low-mips64.c'; then $(CYGPATH_W) 'm_gdbserver/valgrind-low-mips64.c'; else $(CYGPATH_W) '$(srcdir)/m_gdbserver/valgrind-low-mips64.c'; fi`
-
-m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-tilegx.o: m_gdbserver/valgrind-low-tilegx.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-tilegx.o -MD -MP -MF m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-tilegx.Tpo -c -o m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-tilegx.o `test -f 'm_gdbserver/valgrind-low-tilegx.c' || echo '$(srcdir)/'`m_gdbserver/valgrind-low-tilegx.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-tilegx.Tpo m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-tilegx.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_gdbserver/valgrind-low-tilegx.c' object='m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-tilegx.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-tilegx.o `test -f 'm_gdbserver/valgrind-low-tilegx.c' || echo '$(srcdir)/'`m_gdbserver/valgrind-low-tilegx.c
-
-m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-tilegx.obj: m_gdbserver/valgrind-low-tilegx.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-tilegx.obj -MD -MP -MF m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-tilegx.Tpo -c -o m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-tilegx.obj `if test -f 'm_gdbserver/valgrind-low-tilegx.c'; then $(CYGPATH_W) 'm_gdbserver/valgrind-low-tilegx.c'; else $(CYGPATH_W) '$(srcdir)/m_gdbserver/valgrind-low-tilegx.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-tilegx.Tpo m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-tilegx.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_gdbserver/valgrind-low-tilegx.c' object='m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-tilegx.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-valgrind-low-tilegx.obj `if test -f 'm_gdbserver/valgrind-low-tilegx.c'; then $(CYGPATH_W) 'm_gdbserver/valgrind-low-tilegx.c'; else $(CYGPATH_W) '$(srcdir)/m_gdbserver/valgrind-low-tilegx.c'; fi`
 
 m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-version.o: m_gdbserver/version.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-version.o -MD -MP -MF m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-version.Tpo -c -o m_gdbserver/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-version.o `test -f 'm_gdbserver/version.c' || echo '$(srcdir)/'`m_gdbserver/version.c
@@ -5624,20 +5560,6 @@ m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-mips64-linux.ob
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-mips64-linux.obj `if test -f 'm_sigframe/sigframe-mips64-linux.c'; then $(CYGPATH_W) 'm_sigframe/sigframe-mips64-linux.c'; else $(CYGPATH_W) '$(srcdir)/m_sigframe/sigframe-mips64-linux.c'; fi`
 
-m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-tilegx-linux.o: m_sigframe/sigframe-tilegx-linux.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-tilegx-linux.o -MD -MP -MF m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-tilegx-linux.Tpo -c -o m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-tilegx-linux.o `test -f 'm_sigframe/sigframe-tilegx-linux.c' || echo '$(srcdir)/'`m_sigframe/sigframe-tilegx-linux.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-tilegx-linux.Tpo m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-tilegx-linux.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_sigframe/sigframe-tilegx-linux.c' object='m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-tilegx-linux.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-tilegx-linux.o `test -f 'm_sigframe/sigframe-tilegx-linux.c' || echo '$(srcdir)/'`m_sigframe/sigframe-tilegx-linux.c
-
-m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-tilegx-linux.obj: m_sigframe/sigframe-tilegx-linux.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-tilegx-linux.obj -MD -MP -MF m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-tilegx-linux.Tpo -c -o m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-tilegx-linux.obj `if test -f 'm_sigframe/sigframe-tilegx-linux.c'; then $(CYGPATH_W) 'm_sigframe/sigframe-tilegx-linux.c'; else $(CYGPATH_W) '$(srcdir)/m_sigframe/sigframe-tilegx-linux.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-tilegx-linux.Tpo m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-tilegx-linux.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_sigframe/sigframe-tilegx-linux.c' object='m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-tilegx-linux.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-tilegx-linux.obj `if test -f 'm_sigframe/sigframe-tilegx-linux.c'; then $(CYGPATH_W) 'm_sigframe/sigframe-tilegx-linux.c'; else $(CYGPATH_W) '$(srcdir)/m_sigframe/sigframe-tilegx-linux.c'; fi`
-
 m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-x86-darwin.o: m_sigframe/sigframe-x86-darwin.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-x86-darwin.o -MD -MP -MF m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-x86-darwin.Tpo -c -o m_sigframe/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-x86-darwin.o `test -f 'm_sigframe/sigframe-x86-darwin.c' || echo '$(srcdir)/'`m_sigframe/sigframe-x86-darwin.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-x86-darwin.Tpo m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-sigframe-x86-darwin.Po
@@ -5889,20 +5811,6 @@ m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-mips64-linux.obj:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_syswrap/syswrap-mips64-linux.c' object='m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-mips64-linux.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-mips64-linux.obj `if test -f 'm_syswrap/syswrap-mips64-linux.c'; then $(CYGPATH_W) 'm_syswrap/syswrap-mips64-linux.c'; else $(CYGPATH_W) '$(srcdir)/m_syswrap/syswrap-mips64-linux.c'; fi`
-
-m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-tilegx-linux.o: m_syswrap/syswrap-tilegx-linux.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-tilegx-linux.o -MD -MP -MF m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-tilegx-linux.Tpo -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-tilegx-linux.o `test -f 'm_syswrap/syswrap-tilegx-linux.c' || echo '$(srcdir)/'`m_syswrap/syswrap-tilegx-linux.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-tilegx-linux.Tpo m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-tilegx-linux.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_syswrap/syswrap-tilegx-linux.c' object='m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-tilegx-linux.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-tilegx-linux.o `test -f 'm_syswrap/syswrap-tilegx-linux.c' || echo '$(srcdir)/'`m_syswrap/syswrap-tilegx-linux.c
-
-m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-tilegx-linux.obj: m_syswrap/syswrap-tilegx-linux.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-tilegx-linux.obj -MD -MP -MF m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-tilegx-linux.Tpo -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-tilegx-linux.obj `if test -f 'm_syswrap/syswrap-tilegx-linux.c'; then $(CYGPATH_W) 'm_syswrap/syswrap-tilegx-linux.c'; else $(CYGPATH_W) '$(srcdir)/m_syswrap/syswrap-tilegx-linux.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-tilegx-linux.Tpo m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-tilegx-linux.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_syswrap/syswrap-tilegx-linux.c' object='m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-tilegx-linux.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-tilegx-linux.obj `if test -f 'm_syswrap/syswrap-tilegx-linux.c'; then $(CYGPATH_W) 'm_syswrap/syswrap-tilegx-linux.c'; else $(CYGPATH_W) '$(srcdir)/m_syswrap/syswrap-tilegx-linux.c'; fi`
 
 m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-x86-darwin.o: m_syswrap/syswrap-x86-darwin.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-x86-darwin.o -MD -MP -MF m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-x86-darwin.Tpo -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a-syswrap-x86-darwin.o `test -f 'm_syswrap/syswrap-x86-darwin.c' || echo '$(srcdir)/'`m_syswrap/syswrap-x86-darwin.c
@@ -6660,6 +6568,34 @@ libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xarray.obj: m_xarray.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xarray.obj `if test -f 'm_xarray.c'; then $(CYGPATH_W) 'm_xarray.c'; else $(CYGPATH_W) '$(srcdir)/m_xarray.c'; fi`
 
+libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtree.o: m_xtree.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtree.o -MD -MP -MF $(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtree.Tpo -c -o libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtree.o `test -f 'm_xtree.c' || echo '$(srcdir)/'`m_xtree.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtree.Tpo $(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtree.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_xtree.c' object='libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtree.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtree.o `test -f 'm_xtree.c' || echo '$(srcdir)/'`m_xtree.c
+
+libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtree.obj: m_xtree.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtree.obj -MD -MP -MF $(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtree.Tpo -c -o libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtree.obj `if test -f 'm_xtree.c'; then $(CYGPATH_W) 'm_xtree.c'; else $(CYGPATH_W) '$(srcdir)/m_xtree.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtree.Tpo $(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtree.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_xtree.c' object='libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtree.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtree.obj `if test -f 'm_xtree.c'; then $(CYGPATH_W) 'm_xtree.c'; else $(CYGPATH_W) '$(srcdir)/m_xtree.c'; fi`
+
+libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtmemory.o: m_xtmemory.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtmemory.o -MD -MP -MF $(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtmemory.Tpo -c -o libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtmemory.o `test -f 'm_xtmemory.c' || echo '$(srcdir)/'`m_xtmemory.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtmemory.Tpo $(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtmemory.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_xtmemory.c' object='libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtmemory.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtmemory.o `test -f 'm_xtmemory.c' || echo '$(srcdir)/'`m_xtmemory.c
+
+libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtmemory.obj: m_xtmemory.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtmemory.obj -MD -MP -MF $(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtmemory.Tpo -c -o libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtmemory.obj `if test -f 'm_xtmemory.c'; then $(CYGPATH_W) 'm_xtmemory.c'; else $(CYGPATH_W) '$(srcdir)/m_xtmemory.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtmemory.Tpo $(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtmemory.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_xtmemory.c' object='libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtmemory.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_xtmemory.obj `if test -f 'm_xtmemory.c'; then $(CYGPATH_W) 'm_xtmemory.c'; else $(CYGPATH_W) '$(srcdir)/m_xtmemory.c'; fi`
+
 libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_aspacehl.o: m_aspacehl.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_aspacehl.o -MD -MP -MF $(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_aspacehl.Tpo -c -o libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_aspacehl.o `test -f 'm_aspacehl.c' || echo '$(srcdir)/'`m_aspacehl.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_aspacehl.Tpo $(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-m_aspacehl.Po
@@ -7024,6 +6960,20 @@ m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-d-demangle.obj: m_demang
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-d-demangle.obj `if test -f 'm_demangle/d-demangle.c'; then $(CYGPATH_W) 'm_demangle/d-demangle.c'; else $(CYGPATH_W) '$(srcdir)/m_demangle/d-demangle.c'; fi`
 
+m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-rust-demangle.o: m_demangle/rust-demangle.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-rust-demangle.o -MD -MP -MF m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-rust-demangle.Tpo -c -o m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-rust-demangle.o `test -f 'm_demangle/rust-demangle.c' || echo '$(srcdir)/'`m_demangle/rust-demangle.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-rust-demangle.Tpo m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-rust-demangle.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_demangle/rust-demangle.c' object='m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-rust-demangle.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-rust-demangle.o `test -f 'm_demangle/rust-demangle.c' || echo '$(srcdir)/'`m_demangle/rust-demangle.c
+
+m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-rust-demangle.obj: m_demangle/rust-demangle.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-rust-demangle.obj -MD -MP -MF m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-rust-demangle.Tpo -c -o m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-rust-demangle.obj `if test -f 'm_demangle/rust-demangle.c'; then $(CYGPATH_W) 'm_demangle/rust-demangle.c'; else $(CYGPATH_W) '$(srcdir)/m_demangle/rust-demangle.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-rust-demangle.Tpo m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-rust-demangle.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_demangle/rust-demangle.c' object='m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-rust-demangle.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-rust-demangle.obj `if test -f 'm_demangle/rust-demangle.c'; then $(CYGPATH_W) 'm_demangle/rust-demangle.c'; else $(CYGPATH_W) '$(srcdir)/m_demangle/rust-demangle.c'; fi`
+
 m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-safe-ctype.o: m_demangle/safe-ctype.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-safe-ctype.o -MD -MP -MF m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-safe-ctype.Tpo -c -o m_demangle/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-safe-ctype.o `test -f 'm_demangle/safe-ctype.c' || echo '$(srcdir)/'`m_demangle/safe-ctype.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-safe-ctype.Tpo m_demangle/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-safe-ctype.Po
@@ -7275,20 +7225,6 @@ m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-mips64.obj
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_gdbserver/valgrind-low-mips64.c' object='m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-mips64.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-mips64.obj `if test -f 'm_gdbserver/valgrind-low-mips64.c'; then $(CYGPATH_W) 'm_gdbserver/valgrind-low-mips64.c'; else $(CYGPATH_W) '$(srcdir)/m_gdbserver/valgrind-low-mips64.c'; fi`
-
-m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-tilegx.o: m_gdbserver/valgrind-low-tilegx.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-tilegx.o -MD -MP -MF m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-tilegx.Tpo -c -o m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-tilegx.o `test -f 'm_gdbserver/valgrind-low-tilegx.c' || echo '$(srcdir)/'`m_gdbserver/valgrind-low-tilegx.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-tilegx.Tpo m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-tilegx.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_gdbserver/valgrind-low-tilegx.c' object='m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-tilegx.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-tilegx.o `test -f 'm_gdbserver/valgrind-low-tilegx.c' || echo '$(srcdir)/'`m_gdbserver/valgrind-low-tilegx.c
-
-m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-tilegx.obj: m_gdbserver/valgrind-low-tilegx.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-tilegx.obj -MD -MP -MF m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-tilegx.Tpo -c -o m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-tilegx.obj `if test -f 'm_gdbserver/valgrind-low-tilegx.c'; then $(CYGPATH_W) 'm_gdbserver/valgrind-low-tilegx.c'; else $(CYGPATH_W) '$(srcdir)/m_gdbserver/valgrind-low-tilegx.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-tilegx.Tpo m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-tilegx.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_gdbserver/valgrind-low-tilegx.c' object='m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-tilegx.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-valgrind-low-tilegx.obj `if test -f 'm_gdbserver/valgrind-low-tilegx.c'; then $(CYGPATH_W) 'm_gdbserver/valgrind-low-tilegx.c'; else $(CYGPATH_W) '$(srcdir)/m_gdbserver/valgrind-low-tilegx.c'; fi`
 
 m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-version.o: m_gdbserver/version.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-version.o -MD -MP -MF m_gdbserver/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-version.Tpo -c -o m_gdbserver/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-version.o `test -f 'm_gdbserver/version.c' || echo '$(srcdir)/'`m_gdbserver/version.c
@@ -7598,20 +7534,6 @@ m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-mips64-linux.ob
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-mips64-linux.obj `if test -f 'm_sigframe/sigframe-mips64-linux.c'; then $(CYGPATH_W) 'm_sigframe/sigframe-mips64-linux.c'; else $(CYGPATH_W) '$(srcdir)/m_sigframe/sigframe-mips64-linux.c'; fi`
 
-m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-tilegx-linux.o: m_sigframe/sigframe-tilegx-linux.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-tilegx-linux.o -MD -MP -MF m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-tilegx-linux.Tpo -c -o m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-tilegx-linux.o `test -f 'm_sigframe/sigframe-tilegx-linux.c' || echo '$(srcdir)/'`m_sigframe/sigframe-tilegx-linux.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-tilegx-linux.Tpo m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-tilegx-linux.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_sigframe/sigframe-tilegx-linux.c' object='m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-tilegx-linux.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-tilegx-linux.o `test -f 'm_sigframe/sigframe-tilegx-linux.c' || echo '$(srcdir)/'`m_sigframe/sigframe-tilegx-linux.c
-
-m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-tilegx-linux.obj: m_sigframe/sigframe-tilegx-linux.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-tilegx-linux.obj -MD -MP -MF m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-tilegx-linux.Tpo -c -o m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-tilegx-linux.obj `if test -f 'm_sigframe/sigframe-tilegx-linux.c'; then $(CYGPATH_W) 'm_sigframe/sigframe-tilegx-linux.c'; else $(CYGPATH_W) '$(srcdir)/m_sigframe/sigframe-tilegx-linux.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-tilegx-linux.Tpo m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-tilegx-linux.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_sigframe/sigframe-tilegx-linux.c' object='m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-tilegx-linux.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-tilegx-linux.obj `if test -f 'm_sigframe/sigframe-tilegx-linux.c'; then $(CYGPATH_W) 'm_sigframe/sigframe-tilegx-linux.c'; else $(CYGPATH_W) '$(srcdir)/m_sigframe/sigframe-tilegx-linux.c'; fi`
-
 m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-x86-darwin.o: m_sigframe/sigframe-x86-darwin.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-x86-darwin.o -MD -MP -MF m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-x86-darwin.Tpo -c -o m_sigframe/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-x86-darwin.o `test -f 'm_sigframe/sigframe-x86-darwin.c' || echo '$(srcdir)/'`m_sigframe/sigframe-x86-darwin.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-x86-darwin.Tpo m_sigframe/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-sigframe-x86-darwin.Po
@@ -7863,20 +7785,6 @@ m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-mips64-linux.obj:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_syswrap/syswrap-mips64-linux.c' object='m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-mips64-linux.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-mips64-linux.obj `if test -f 'm_syswrap/syswrap-mips64-linux.c'; then $(CYGPATH_W) 'm_syswrap/syswrap-mips64-linux.c'; else $(CYGPATH_W) '$(srcdir)/m_syswrap/syswrap-mips64-linux.c'; fi`
-
-m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-tilegx-linux.o: m_syswrap/syswrap-tilegx-linux.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-tilegx-linux.o -MD -MP -MF m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-tilegx-linux.Tpo -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-tilegx-linux.o `test -f 'm_syswrap/syswrap-tilegx-linux.c' || echo '$(srcdir)/'`m_syswrap/syswrap-tilegx-linux.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-tilegx-linux.Tpo m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-tilegx-linux.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_syswrap/syswrap-tilegx-linux.c' object='m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-tilegx-linux.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-tilegx-linux.o `test -f 'm_syswrap/syswrap-tilegx-linux.c' || echo '$(srcdir)/'`m_syswrap/syswrap-tilegx-linux.c
-
-m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-tilegx-linux.obj: m_syswrap/syswrap-tilegx-linux.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-tilegx-linux.obj -MD -MP -MF m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-tilegx-linux.Tpo -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-tilegx-linux.obj `if test -f 'm_syswrap/syswrap-tilegx-linux.c'; then $(CYGPATH_W) 'm_syswrap/syswrap-tilegx-linux.c'; else $(CYGPATH_W) '$(srcdir)/m_syswrap/syswrap-tilegx-linux.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-tilegx-linux.Tpo m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-tilegx-linux.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='m_syswrap/syswrap-tilegx-linux.c' object='m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-tilegx-linux.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-tilegx-linux.obj `if test -f 'm_syswrap/syswrap-tilegx-linux.c'; then $(CYGPATH_W) 'm_syswrap/syswrap-tilegx-linux.c'; else $(CYGPATH_W) '$(srcdir)/m_syswrap/syswrap-tilegx-linux.c'; fi`
 
 m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-x86-darwin.o: m_syswrap/syswrap-x86-darwin.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS) $(CPPFLAGS) $(libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS) $(CFLAGS) -MT m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-x86-darwin.o -MD -MP -MF m_syswrap/$(DEPDIR)/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-x86-darwin.Tpo -c -o m_syswrap/libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a-syswrap-x86-darwin.o `test -f 'm_syswrap/syswrap-x86-darwin.c' || echo '$(srcdir)/'`m_syswrap/syswrap-x86-darwin.c
