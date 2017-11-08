@@ -25,12 +25,29 @@ ifneq ($(filter x86_64, $(TARGET_ARCH)),)
 endif
 
 common_cflags := \
-	-Wall -Wmissing-prototypes -Wshadow -Wpointer-arith -Wmissing-declarations \
-	-Wno-pointer-sign -Wno-sign-compare -Wno-unused-parameter -Wno-shadow \
-	-fno-strict-aliasing -fno-stack-protector -Wno-tautological-compare -Wno-self-assign \
+	-fno-strict-aliasing \
+	-fno-stack-protector \
 	-DVGO_linux=1 \
 	-DANDROID_SYMBOLS_DIR=\"/data/local/symbols\" \
-  -std=gnu99
+	-Wall \
+	-Werror \
+	-Wmissing-declarations \
+	-Wmissing-prototypes \
+	-Wpointer-arith \
+	-Wno-asm-operand-widths \
+	-Wno-cast-align \
+	-Wno-format \
+	-Wno-incompatible-library-redeclaration \
+	-Wno-incompatible-pointer-types \
+	-Wno-initializer-overrides \
+	-Wno-missing-field-initializers \
+	-Wno-pointer-sign \
+	-Wno-self-assign \
+	-Wno-shadow \
+	-Wno-sign-compare \
+	-Wno-tautological-compare \
+	-Wno-unused-parameter \
+	-std=gnu99
 
 ifeq ($(TARGET_IS_64_BIT),true)
   vg_target_module_path := /system/lib64/valgrind
@@ -97,7 +114,6 @@ vg_local_module=libvex
 vg_local_cflags := $(common_cflags) \
     -Wbad-function-cast \
     -Wcast-qual \
-    -Wcast-align \
     -fstrict-aliasing \
 
 vg_local_src_files := \
