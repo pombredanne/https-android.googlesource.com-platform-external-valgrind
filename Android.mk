@@ -16,7 +16,8 @@ LOCAL_PATH:= $(call my-dir)
 
 ANDROID_HARDWARE := ANDROID_HARDWARE_generic
 
-ifneq ($(filter arm arm64 x86_64,$(TARGET_ARCH)),)
+# When updating this list also update the list in art/build/Android.gtest.mk
+VALGRIND_SUPPORTED_ARCH := arm arm64 x86_64
 
 vg_arch:=$(TARGET_ARCH)
 
@@ -653,6 +654,4 @@ LOCAL_MODULE_PATH := $(HOST_OUT_SHARED_LIBRARIES)/valgrind
 LOCAL_SRC_FILES := bionic.supp
 
 include $(BUILD_PREBUILT)
-endif
-
 endif
